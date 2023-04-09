@@ -32,7 +32,7 @@ let consume = data => {
 }
 
 search(
-  graph, 4, 12,
+  graph, 4, 12,/** search shortest path from 4 to 12 */
   (a, b) => a === b,
   data => consume(data)
 )
