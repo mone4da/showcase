@@ -40,9 +40,9 @@ module.exports = {
 		  },
 		
 		  credentials: {
-			key: 'EEEEEEEE-00000000AC',
-			password: '8393e284-da0d-11ed-8907-005056492a84',
-			address: 'EEEEEEEE-00000000AC',
+			key: 'EEEEE0000AC',
+			password: '',
+			address: 'EE0000AC',
 		  }
 	},
 
