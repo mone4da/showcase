@@ -9,7 +9,7 @@ const defaultPosition = {x: 200, y: 200}
 let renderApp = (name, Component, event, asset, offset, onFocused, onDragged, onClose) => {
 	switch(name){
 		case 'cli' : return <Cli Component={Component} event={event} asset = {asset.cli}  offset={offset}  onFocused={onFocused} onDragged={onDragged} onClose={onClose}/>
-		case 'histogram' : return <Histogram Component={Component} event={event} asset = {asset.cli}  offset={offset}  onFocused={onFocused} onDragged={onDragged} onClose={onClose} />
+		case 'histogram' : return event.source === 'latency' && <Histogram Component={Component} event={event} asset = {asset.cli}  offset={offset}  onFocused={onFocused} onDragged={onDragged} onClose={onClose} />
 	}
 
 	return null

@@ -1,4 +1,4 @@
-import { Component } from "react"
+import { useState } from "react"
 
 let data = [...new Array(500)].map(() => 0)
 
@@ -29,13 +29,13 @@ let Content = props => {
 		}
 	}
 
-	data.unshift(props.event.data)
-	data.pop()
+	data = [props.event.data, ...data.slice(0, data.length-1)]
 
+	let max = 250
 	return <div style={style} >
-			<Chart width={500} height={100} data={[0,...data,0]} max={1000} />
+			<Chart width={500} height={100} data={[0,...data,0]} max={max} />
 			<div style={style.glass}>
-				<label>500 miliseconds</label>
+				<label>{max >> 1} miliseconds</label>
 				<hr style={style.glass.line} />
 			</div>
 		</div>

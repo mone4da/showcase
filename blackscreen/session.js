@@ -12,14 +12,14 @@ class Session extends require('./adrenalina/abstractapp'){
 	}
 
 	notify(id, data){
-		console.log(data)
+		console.log('notify', data)
 		this.appSocket.emit(id, data)
 	}
 
 	getCredentials() {
         return this.credentials
       }
-    
+
       onGranted() {
 		this.notify('granted', {})
         console.log('granted and reaching out')

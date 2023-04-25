@@ -40,13 +40,13 @@ module.exports = {
 		  },
 		
 		  credentials: {
-			key: 'EEEEE0000AC',
-			password: '',
-			address: 'EE0000AC',
+			key: 'EEEEEEEE-00000000AC',
+			password: '8393e284-da0d-11ed-8907-005056492a84',
+			address: 'EEEEEEEE-00000000AC',
 		  }
 	},
 
 	netlatency: {
-		source: 'https://4digitalasset.com:1445/latency'
+		source: 'https://au.4digitalasset.com:1445/latency'
 	}
 }
