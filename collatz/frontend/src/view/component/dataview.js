@@ -16,7 +16,7 @@ const Bars = props => {
 	let yscale = props.height / props.max
 	let barWidth = Math.max(1,xscale - 1)
 	let fill = props.fill || 'white'
-	return <svg>
+	return <svg style={{width: props.width, height: props.height}}>
 			{data.map(
 				(value,i) => <Bar x={i * xscale} y={props.height - value * yscale}  h = {value * yscale}  w = {barWidth} fill={fill} />
 			)}
@@ -30,7 +30,7 @@ const Lines = props => {
 
 	let points = [...data.map( (value,i) => `${i*xscale}, ${props.height - value * yscale}`)].join(' ')
 
-	return <svg>
+	return <svg style={{width: props.width, height: props.height}}>
 			<polygon points={points} fill={props.fill || '#F1F6FA'} stroke={props.stoke || '#117DBB'} />
 		</svg>
 

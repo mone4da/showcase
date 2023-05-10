@@ -24,6 +24,7 @@ let initialize = n => {
 }
 
 const barStyle = {
+	width: '900px',
 	position: 'absolute'
 }
 
@@ -48,14 +49,15 @@ const Content = props => {
 
 				<img style={{height: '50px'}} src={asset.Colaz} alt='Collaz sequence' />
 
-				<p>then it is easy to prove, at least, for any natural number, the following inequality, which I leave to you as exercise ...</p>
+				<p>Now assume that z(x) tends to infinity.</p>
+				<p>It is easy to prove, at least, for any natural number, the following inequality, which I leave to you as exercise ...</p>
 
 				<img style={{height: '50px'}} src={asset.Inequality} alt='Colas inequality' />
 
 				<p>
-					If z(x) converges to infinity, it would be a contradiction<br/>
+					But this inequality is a contradiction, also establishing an upper bound for z(x)<br/>
 
-					Since s(x) converges to 1, then 3*s(x) will converge to 3. This leads to the conclusion that z(x),
+					Since s(x) converges to 1 (easy proof using induction), 3*s(x) will converge to 3. This leads to the conclusion that z(x),
 					the Collatz sequence, converges to 1, which is already known for x less than 3.
 				</p>
 				<p>
@@ -63,16 +65,16 @@ const Content = props => {
 					In this case we can substitute the inequality by z(x) &lt; 3*s(K + i). Eventually 3*s( K + i ) will tend to 3 as i goes to infinity.
 				</p>
 
-				<p>This is true in general, if 3 is substituted by a prime number</p>
+				<p>This is true in general, if 3 is substituted by a prime number greater than 2</p>
 
 				<p>The chart is giving a hint of what is going on for 27 as the initial number</p>
-				<p>The red bars show the log( z(x) ) sequence and the white bars show log( 3*s(z(x)) )</p>
+				<p>The red bars show z(x) ) and the white bars show  3*s(z(x)), using a logarithmic scale</p>
 
 				<div>
 					<div style={barStyle}>
 						<Component.Bars
 							data={data.colas.map(v => Math.log(v))}
-							width='900'
+							width='600'
 							height='300'
 							max = {Math.log(data.max)}
 							fill = 'white'
@@ -82,7 +84,7 @@ const Content = props => {
 					<div style={barStyle}>
 						<Component.Bars
 							data={data.colaz.map(v => Math.log(v))}
-							width='900'
+							width='600'
 							height='300'
 							max = {Math.log(data.max)}
 							fill = 'red'
