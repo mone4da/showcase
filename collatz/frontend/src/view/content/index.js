@@ -52,7 +52,7 @@ const Content = props => {
 				<p>Now assume that z(x) tends to infinity.</p>
 				<p>It is easy to prove, at least, for any natural number, the following inequality, which I leave to you as exercise ...</p>
 
-				<img style={{height: '50px'}} src={asset.Inequality} alt='Colas inequality' />
+				<img style={{height: '30px'}} src={asset.Inequality} alt='Colas inequality' />
 
 				<p>
 					But this inequality is a contradiction, also establishing an upper bound for z(x)<br/>

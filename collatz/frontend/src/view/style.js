@@ -1,7 +1,7 @@
 
 const style = {
-	display: 'grid',
-	gridTemplateRows: '30px auto',
+	display: 'flex',
+	flexDirection: 'column',
 	height: '100%',
 	width: '100%',
 	background: '#08093B',
@@ -12,6 +12,7 @@ const style = {
 		justifyContent: 'space-between',
 		background: '#08093B',
 		fontSize: '.7em',
+		height: '30px',
 
 		border: 'solid #BF9000',
 		borderWidth: '0 0 1px 0',
@@ -29,13 +30,9 @@ const style = {
 	content: {
 		display: 'flex',
 		flexDirection: 'column',
-		alignItems: 'center'
-	},
-
-	footer: {
-		border: 'solid #BF9000',
-		borderWidth: '1px 0 0 0',
-		fontSize: '.7em',
+		alignItems: 'center',
+		height: '100%',
+		fontSize: '.6em'
 	}
 }
 
