@@ -61,8 +61,8 @@ const Content = props => {
 					the Collatz sequence, converges to 1, which is already known for x less than 3.
 				</p>
 				<p>
-					One could argue that z(x), after some large index i, it stays on a constant K larger than 1. <br/>
-					In this case we can substitute the inequality by z(x) &lt; 3*s(K + i). Eventually 3*s( K + i ) will tend to 3 as i goes to infinity.
+					One could argue that z(x), after some large index i, stays on a constant K larger than 1. <br/>
+					In this case we can substitute the inequality by z(x) &lt; 3*s(K + i). Eventually, 3*s( K + i ) will converge to 3 as i goes to infinity.
 				</p>
 
 				<p>This is true in general, if 3 is substituted by a prime number greater than 2</p>
