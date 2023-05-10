@@ -1,13 +1,24 @@
 import {useState} from 'react'
 
-let nextColas = n => 3*(n % 2 ?  n + 1 : n >> 1)
-let nextColaz = n => n % 2 ? 3*n + 1 : n >> 1
+const startNumber = 63728127n
+
+let nextColas = n => 3n*(n % 2n ?  n + 1n : n >> 1n)
+let nextColaz = n => n % 2n ? 3n*n + 1n : n >> 1n
+
+let bigmax = (a,b) => a >= b ? a : b
+
+let biglog  = bigint => {
+  if (bigint < 0) return NaN
+  const s = bigint.toString(10)
+
+  return s.length + Math.log10("0." + s.substring(0, 15))
+}
 
 let initialize = n => {
 	let data = {
 		colaz : [n],
-		colas : [3*n],
-		max : -1
+		colas : [3n*n],
+		max : -1n
 	}
 
 	for (let count=0; count < 101; count++ ){
@@ -16,7 +27,7 @@ let initialize = n => {
 
 		data.colaz.unshift(clz)
 		data.colas.unshift(cls)
-		data.max = Math.max(Math.max(data.max, clz), cls)
+		data.max = bigmax(bigmax(data.max, clz), cls)
 	}
 
 	return data
@@ -31,7 +42,7 @@ const barStyle = {
 const Content = props => {
 	let {Component,selection, state,asset, style, onUpdate} = props
 
-	let data = initialize(27)
+	let data = initialize(startNumber)
 
 	return  <div style={style}>
 			<div style={{width: '80%'}}>
@@ -67,26 +78,26 @@ const Content = props => {
 
 				<p>This is true in general, if 3 is substituted by a prime number greater than 2</p>
 
-				<p>The chart is giving a hint of what is going on for 27 as the initial number</p>
+				<p>The chart is giving a hint of what is going on for 63728127 as the initial number</p>
 				<p>The red bars show z(x) ) and the white bars show  3*s(z(x)), using a logarithmic scale</p>
 
 				<div>
 					<div style={barStyle}>
 						<Component.Bars
-							data={data.colas.map(v => Math.log(v))}
-							width='600'
-							height='300'
-							max = {Math.log(data.max)}
+							data={data.colas.map(v =>biglog(v))}
+							width='800'
+							height='200'
+							max = {biglog(data.max)}
 							fill = 'white'
 						/>
 					</div>
 
 					<div style={barStyle}>
 						<Component.Bars
-							data={data.colaz.map(v => Math.log(v))}
-							width='600'
-							height='300'
-							max = {Math.log(data.max)}
+							data={data.colaz.map(v => biglog(v))}
+							width='800'
+							height='200'
+							max = {biglog(data.max)}
 							fill = 'red'
 						/>
 					</div>
