@@ -9,10 +9,12 @@ const style = {
 
 	header: {
 		display: 'flex',
+		flexDirection: 'row',
 		justifyContent: 'space-between',
 		background: '#08093B',
-		fontSize: '.7em',
+		fontSize: '.9em',
 		height: '30px',
+		padding: '2px',
 
 		border: 'solid #BF9000',
 		borderWidth: '0 0 1px 0',
