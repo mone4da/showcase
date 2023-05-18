@@ -13,13 +13,17 @@ module.exports = {
 	},
 
 	maze: {
-		width: 40,
-		height: 80,
-		entry: {x: 0, y: 3},
-		exit: {x: 79, y: 6},
-		ratio: 5,
-		randomizer: 400,
-		drilling: .8
+		params: {
+			width: 40,
+			height: 40,
+			entry: {x: 0, y: 3},
+			exit: {x: 39, y: 6},
+			ratio: 5,
+			randomizer: 400,
+			drilling: .8
+		},
+
+		data: './data.maze'
 	},
 
 	netgate: {

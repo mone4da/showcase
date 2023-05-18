@@ -65,9 +65,9 @@ class Desk{
 	}
 
 	loadConfig(res, config){
+		let maze = fs.readFileSync(config.maze.data, 'utf8')
 		res.json({
-			region: config.region,
-			copyright: config.copyright
+			maze: JSON.parse(maze),
 		})
 	}
 
