@@ -11,7 +11,13 @@ let View = props => {
 	return <div style={style}>
 			<Suspense fallback={null}>
 				<Canvas style={style.scene} shadows>
-					<Maze data={state.system.maze} />
+					<Maze
+						data={state.system.maze}
+						chickens={state.system.chickens}
+						targets = {state.user.targets}
+						player = {state.user.player}
+						event={event}
+					/>
 				</Canvas>
 			</Suspense>
 		</div>

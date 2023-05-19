@@ -3,6 +3,8 @@ const state =  {
 	system: {
 		maze: [],
 
+		chickens : [],
+
 		setting : {
 			size: {
 				width: 30,
@@ -12,6 +14,17 @@ const state =  {
 	},
 
 	user: {
+		player : {
+				position : {
+					x: 4, z: 3
+				},
+				material: {
+					color: 'red'
+				}
+		},
+
+		targets: [],
+
 		setting : {
 		}
 	}
@@ -19,3 +32,4 @@ const state =  {
 }
 
 export default state
+
