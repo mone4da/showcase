@@ -61,10 +61,11 @@ let moveTo = (data, code, p) => {
 	let tryPosition = (old, p) => data[p.z][p.x] ? old : p
 
 	switch(code){
-		case 'ArrowUp' : return tryPosition(p, {x: p.x, z: p.z + 1});
-		case 'ArrowDown' : return tryPosition(p, {x: p.x, z: p.z -1});
+		case 'ArrowUp' : return tryPosition(p, {x: p.x, z: p.z + 1})
+		case 'ArrowDown' : return tryPosition(p, {x: p.x, z: p.z -1})
 		case 'ArrowLeft' : return tryPosition(p, {x: p.x - 1, z: p.z})
 		case 'ArrowRight' : return tryPosition(p, {x: p.x + 1, z: p.z})
+		default : return p
 	}
 }
 
@@ -76,7 +77,6 @@ const Maze = props => {
 	useKeyboard(
 		code  => setPosition(p => moveTo(data, code, p))
 	)
-
 
 	return <>
 			<OrbitControls target={control.target} maxPolarAngle={control.angle} enableDamping={false} />
