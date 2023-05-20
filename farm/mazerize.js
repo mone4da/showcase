@@ -11,10 +11,5 @@ let maze = generate(
 	config.randomizer,
 	config.drilling)
 
-let wall = '■'
-let space = ' '
-
-//console.log(maze.map(row => row.map(v => v ? wall : space).join('')).join('\n'))'
-
-console.log( maze )
+	console.log( maze )
 

@@ -14,6 +14,7 @@ let View = props => {
 					<Maze
 						data={state.system.maze}
 						chickens={state.system.chickens}
+						impacts = {state.system.impacts}
 						targets = {state.user.targets}
 						player = {state.user.player}
 						event={event}

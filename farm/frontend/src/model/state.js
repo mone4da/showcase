@@ -5,6 +5,8 @@ const state =  {
 
 		chickens : [],
 
+		impacts : [],
+
 		setting : {
 			size: {
 				width: 30,
@@ -16,7 +18,7 @@ const state =  {
 	user: {
 		player : {
 				position : {
-					x: 4, z: 3
+					x: 0, z: 3
 				},
 				material: {
 					color: 'red'

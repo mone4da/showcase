@@ -1,23 +1,24 @@
 
-let generate = (width, height, entry, exit, ratio, randomizer, drilling) => {
-	let initialize = () => {
-		let data = [...Array(width)]
-				.map(() => [...Array(height)]
-				.map(() => 1))
+let initialize = (width, height, entry, exit) => {
+	let data = [...Array(height)]
+			.map(() => [...Array(width)]
+			.map(() => 1))
 
-		data[entry.y][entry.x] = 0
-		data[exit.y][exit.x] = 0
+	data[entry.y][entry.x] = 0
+	data[exit.y][exit.x] = 0
 
-		return data
-	}
+	return data
+}
 
-	let gate = pos => (pos.x === entry.x && pos.y === entry.y) || (pos.x === exit.x && pos.y === exit.y)
+
+let makepath = (data, entry, exit, width, height, depth, drilling) => {
+	let isExit = a => a.x === exit.x && a.y === exit.y
 
 	let randomPos = v => Math.floor(Math.random()*v.length)
 
 	let inside = p => p.x > 0 && p.x < width-1 && p.y > 0 && p.y < height-1
 
-	let visited = p => !data[p.x][p.y]
+	let visited = p => !data[p.y][p.x]
 
 	let vecinity = (pos, step) => {
 		return [
@@ -25,32 +26,39 @@ let generate = (width, height, entry, exit, ratio, randomizer, drilling) => {
 			{x: pos.x + step, y:  pos.y},
 			{x: pos.x,y : pos.y + step },
 			{x: pos.x - step, y: pos.y}
-		].filter(p => inside(p) && !visited(p))
+		]
 	}
 
-	let mazerize = (pos, mind) => {
-		if (gate(pos) || mind <= 0)
+	let drill = (pos, depth) => {
+		if (	visited(pos) ||
+			!inside(pos) ||
+			isExit(pos) ||
+			!depth)
+
 			return
 
-		data[pos.x][pos.y] = 0
+		data[pos.y][pos.x] = 0
 
-		for (n of vecinity(pos,2))
-			Math.random() > drilling && mazerize(n, mind-1)
+		for(let p of vecinity(pos, 1))
+			Math.random() >= drilling && drill(p, depth - 1)
 
 	}
 
-	let data = initialize()
-	mazerize(entry, ratio)
-	mazerize(exit, ratio)
+	drill(entry, depth)
+}
 
-	for(let i = 0; i<randomizer; i++)
-		mazerize({
-			x: Math.floor(Math.random()*(width-2)) + 1,
-			y: Math.floor(Math.random()*(height-2)) + 1
-		},
-		ratio)
+let generate = (width, height, entry, exit, ratio, randomizer, drilling) => {
+
+	let data = initialize( width, height, entry, exit )
+
+	for(let i=0; i<randomizer; i++){
+		makepath(data, entry, exit, width, height, ratio, drilling)
+		entry = {x: Math.floor(Math.random()*width), y : Math.floor(Math.random()*height)}
+	}
 
 	return data
 }
 
 module.exports = generate
+
+

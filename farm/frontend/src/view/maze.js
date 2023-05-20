@@ -10,7 +10,7 @@ let control = {
 
 let camera = {
 	fov: 50,
-	position : [3, 2, 5]
+	position : [3, 125, 5]
 }
 
 let space = [4, 1, 4]
@@ -47,6 +47,14 @@ const Player = props => {
 		</mesh>
 }
 
+const Impact = props => {
+		let {data} = props
+
+	return	<mesh position={[data.position.x,0,data.position.z]}>
+			<boxGeometry args={ [.3,.3,.3] } />
+			<meshBasicMaterial color={data.material.color} />
+		</mesh>
+}
 
 const Chicken = props => {
 		let {data} = props
@@ -63,14 +71,14 @@ let moveTo = (data, code, p) => {
 	switch(code){
 		case 'ArrowUp' : return tryPosition(p, {x: p.x, z: p.z + 1})
 		case 'ArrowDown' : return tryPosition(p, {x: p.x, z: p.z -1})
-		case 'ArrowLeft' : return tryPosition(p, {x: p.x - 1, z: p.z})
-		case 'ArrowRight' : return tryPosition(p, {x: p.x + 1, z: p.z})
+		case 'ArrowLeft' : return tryPosition(p, {x: p.x + 1, z: p.z})
+		case 'ArrowRight' : return tryPosition(p, {x: p.x - 1, z: p.z})
 		default : return p
 	}
 }
 
 const Maze = props => {
-	let {data, player, targets, chickens} = props
+	let {data, player, targets, chickens, impacts} = props
 
 	let [position, setPosition] = useState(player.position)
 
@@ -87,6 +95,8 @@ const Maze = props => {
 			{ targets.map(data => <Target data={data} /> ) }
 
 			{ chickens.map(data => <Chicken data={data} /> ) }
+
+			{ impacts.map(data => <Impact data={data} /> ) }
 
 			<Player position={position} material={player.material} />
 
