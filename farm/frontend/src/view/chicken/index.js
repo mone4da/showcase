@@ -38,8 +38,18 @@ const Gunter = props => {
 
 }
 
+const Chickens = props => {
+	let {players, rate, onFire} = props
+	return <>
+			{/*<Rufus players={players} onFire={onFire} />*/}
+			<Gunter players={players} rate={rate} onFire={onFire}/>
+		</>
+}
+
+
 export {
 	Rufus,
-	Gunter
+	Gunter,
+	Chickens
 }
 

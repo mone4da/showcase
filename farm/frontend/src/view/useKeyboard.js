@@ -15,18 +15,12 @@ const useKeyboard = ({onKeyup, onKeydown, onPressing}) => {
 			onKeydown && onKeydown(e.code)
 		}
 
-		const handleTimer = () => {
-			pressing && onPressing && onPressing(pressing)
-		}
-
 		document.addEventListener('keydown', handleKeydown)
 		document.addEventListener('keyup', handleKeyup)
-		document.timer = setInterval(handleTimer, 50)
 
 		return () => {
 				document.removeEventListener('keydown', handleKeydown)
 				document.removeEventListener('keyup', handleKeyup)
-				clearInterval(document.timer)
 			}
 	})
 }

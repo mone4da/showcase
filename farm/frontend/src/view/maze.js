@@ -1,15 +1,9 @@
 import {useState} from 'react'
-import {Rufus, Gunter} from './chicken'
-import {Fire} from './effect'
-import useKeyboard from './useKeyboard'
 
-const Chickens = props => {
-	let {players, rate, onFire} = props
-	return <>
-			{/*<Rufus players={players} onFire={onFire} />*/}
-			<Gunter players={players} rate={rate} onFire={onFire}/>
-		</>
-}
+import {Chickens} from './chicken'
+import {Fire} from './effect'
+import {Player, newPosition} from './rule'
+import useKeyboard from './useKeyboard'
 
 const Wall = props => {
 		let {x,h,z} = props
@@ -21,30 +15,6 @@ const Wall = props => {
 			height={1}
 			fill={h ? 'green' : ' black'} 
 		/>
-}
-
-const Player = props => {
-		let {position, material} = props
-
-	return	<rect
-			x={position.x + .1}
-			y={position.z + .1}
-			width='.8'
-			height='.8'
-			fill={material.color} 
-		/>
-}
-
-let moveTo = (data, code, p) => {
-	let tryPosition = (old, p) => data[p.z][p.x] ? old : p
-
-	switch(code){
-		case 'ArrowUp' : return tryPosition(p, {x: p.x, z: p.z - 1})
-		case 'ArrowDown' : return tryPosition(p, {x: p.x, z: p.z + 1})
-		case 'ArrowLeft' : return tryPosition(p, {x: p.x - 1, z: p.z})
-		case 'ArrowRight' : return tryPosition(p, {x: p.x + 1, z: p.z})
-		default : return p
-	}
 }
 
 const Walls = props => {
@@ -69,17 +39,19 @@ let Maze = props => {
 	}
 
 	let handleFire = (from, to) => {
-		console.log(from, to)
 		setFire({from, to})
 	}
 
+	let handleKeydown = code => {
+		setPosition(position => newPosition(data, code, position))
+	}
+
 	useKeyboard({
-		onPressing : code  => setPosition(p => moveTo(data, code, p))
+		onKeydown : code => handleKeydown(code)
 	})
 
 	return <svg style={style} >
 			<g transform={`scale(${scale.x},${scale.y})`}>
-
 				<Walls data={data} />
 
 				<Player position={position} material={player.material} />
