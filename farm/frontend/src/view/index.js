@@ -14,6 +14,7 @@ let View = props => {
 				impacts = {state.system.impacts}
 				targets = {state.user.targets}
 				player = {state.user.player}
+				firerate = {state.system.setting.firerate}
 				event={event}
 			/>
 		</div>

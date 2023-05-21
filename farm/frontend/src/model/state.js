@@ -11,7 +11,9 @@ const state =  {
 			size: {
 				width: 30,
 				height: 30
-			}
+			},
+
+			firerate: 40
 		}
 	},
 

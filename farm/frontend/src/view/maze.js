@@ -1,7 +1,7 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 import {Chickens} from './chicken'
-import {Fire} from './effect'
+import {Fire, Impact} from './effect'
 import {Player, newPosition} from './rule'
 import useKeyboard from './useKeyboard'
 
@@ -25,7 +25,7 @@ const Walls = props => {
 }
 
 let Maze = props => {
-	let {data, style, player} = props
+	let {data, firerate, style, player} = props
 
 	let [position, setPosition] = useState(player.position)
 	let [fire, setFire] = useState({from: null, to: null})
@@ -50,15 +50,22 @@ let Maze = props => {
 		onKeydown : code => handleKeydown(code)
 	})
 
+	useEffect(()=>{
+		return ()=>{
+			setTimeout(() => setFire({from: null, to: null}), 1000)
+		}
+	}, [fire])
+
 	return <svg style={style} >
 			<g transform={`scale(${scale.x},${scale.y})`}>
 				<Walls data={data} />
 
 				<Player position={position} material={player.material} />
 
-				<Chickens players={[position]} rate={20} onFire={handleFire} />
+				<Chickens players={[position]} rate={firerate} onFire={handleFire} />
 
-				<Fire from={fire.from} to={fire.to} />
+				<Fire position={fire.from} />
+				<Impact position={fire.to} />
 			</g>
 		</svg>
 }
