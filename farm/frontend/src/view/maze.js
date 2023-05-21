@@ -1,6 +1,15 @@
 import {useState} from 'react'
 import {Rufus, Gunter} from './chicken'
+import {Fire} from './effect'
 import useKeyboard from './useKeyboard'
+
+const Chickens = props => {
+	let {players, rate, onFire} = props
+	return <>
+			{/*<Rufus players={players} onFire={onFire} />*/}
+			<Gunter players={players} rate={rate} onFire={onFire}/>
+		</>
+}
 
 const Wall = props => {
 		let {x,h,z} = props
@@ -38,12 +47,18 @@ let moveTo = (data, code, p) => {
 	}
 }
 
-
+const Walls = props => {
+	let {data} = props
+	return <>
+			{data.map( (row, r) => row.map((w,c) => <Wall x={c} h={w} z={r} /> ))}
+		</>
+}
 
 let Maze = props => {
 	let {data, style, player} = props
 
 	let [position, setPosition] = useState(player.position)
+	let [fire, setFire] = useState({from: null, to: null})
 
 	let width = data[0].length
 	let height = data.length
@@ -53,15 +68,25 @@ let Maze = props => {
 		y: style.height/height
 	}
 
+	let handleFire = (from, to) => {
+		console.log(from, to)
+		setFire({from, to})
+	}
+
 	useKeyboard({
 		onPressing : code  => setPosition(p => moveTo(data, code, p))
 	})
 
 	return <svg style={style} >
 			<g transform={`scale(${scale.x},${scale.y})`}>
-				{data.map( (row, r) => row.map((w,c) => <Wall x={c} h={w} z={r} /> ))}
+
+				<Walls data={data} />
 
 				<Player position={position} material={player.material} />
+
+				<Chickens players={[position]} rate={20} onFire={handleFire} />
+
+				<Fire from={fire.from} to={fire.to} />
 			</g>
 		</svg>
 }
