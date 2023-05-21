@@ -9,8 +9,9 @@ const style = {
 	color: '#BF9000',
 
 	scene: {
-		height: '800px',
-		width: '800px'
+		background: 'black',
+		height: '600',
+		width: '600'
 	}
 }
 
