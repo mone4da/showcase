@@ -53,9 +53,9 @@ let Maze = props => {
 		y: style.height/height
 	}
 
-	useKeyboard(
-		code  => setPosition(p => moveTo(data, code, p))
-	)
+	useKeyboard({
+		onPressing : code  => setPosition(p => moveTo(data, code, p))
+	})
 
 	return <svg style={style} >
 			<g transform={`scale(${scale.x},${scale.y})`}>
