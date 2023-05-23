@@ -13,14 +13,14 @@ const Wall = props => {
 			y={z}
 			width={1}
 			height={1}
-			fill={h ? 'green' : ' black'} 
+			fill={h ? 'green' : ' black'}
 		/>
 }
 
 const Walls = props => {
-	let {data} = props
+	let {data, visible} = props
 	return <>
-			{data.map( (row, r) => row.map((w,c) => <Wall x={c} h={w} z={r} /> ))}
+			{visible && data.map( (row, r) => row.map((w,c) => <Wall x={c} h={w} z={r} /> ))}
 		</>
 }
 
@@ -58,7 +58,7 @@ let Maze = props => {
 
 	return <svg style={style} >
 			<g transform={`scale(${scale.x},${scale.y})`}>
-				<Walls data={data} />
+				<Walls data={data} visible={false} />
 
 				<Player position={position} material={player.material} />
 

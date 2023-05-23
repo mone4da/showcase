@@ -1,48 +1,49 @@
 
-import {useState} from 'react'
+import {Chicken} from './basic'
 
 const Rufus = props => {
-	let {players, rate, onFire} = props
+	let {players, size, onFire} = props
 
-	let [position, setPosition] = useState({x:60, z: 60})
-
-	for (let player of players)
-		Math.random()*1000 < rate && onFire && onFire(position, player)
-
-	return	<circle
-			cx={position.x}
-			cy={position.z}
-			r='20'
-			fill={'red'}
-			fillOpacity={.6}
+	return	<Chicken
+			id='rufus'
+			size={size}
+			players={players}
+			onFire={onFire}
 		/>
 
 }
 
 const Gunter = props => {
-	let {players, rate, onFire} = props
+	let {players, size, onFire} = props
 
-	let [position, setPosition] = useState({x:20, z: 66})
-
-	for (let player of players)
-		Math.random()*1000 < rate && onFire && onFire(position, player)
-
-
-	return	<circle
-			cx={position.x}
-			cy={position.z}
-			r='20'
-			fill={'blue'}
-			fillOpacity={.6}
+	return	<Chicken
+			id='gunter'
+			size={size}
+ 			players={players}
+			onFire={onFire}
 		/>
-
 }
 
+const Mona = props => {
+	let {players, size, onFire} = props
+
+	return	<Chicken
+			id='mona'
+			size={size}
+ 			players={players}
+			onFire={onFire}
+		/>
+}
+
+
 const Chickens = props => {
-	let {players, rate, onFire} = props
+	let {players, onFire} = props
+	let size = .02
+
 	return <>
-			{/*<Rufus players={players} onFire={onFire} />*/}
-			<Gunter players={players} rate={rate} onFire={onFire}/>
+			<Rufus players={players} size={size} onFire={onFire} />
+			<Gunter players={players} size={size} onFire={onFire}/>
+			<Mona players={players} size={size} onFire={onFire}/>
 		</>
 }
 
