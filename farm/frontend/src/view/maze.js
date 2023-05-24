@@ -58,13 +58,12 @@ let Maze = props => {
 
 	return <svg style={style} >
 			<g transform={`scale(${scale.x},${scale.y})`}>
-				<Walls data={data} visible={false} />
+				<Walls data={data} visible={true} />
 
 				<Player position={position} material={player.material} />
 
 				<Chickens players={[position]} rate={firerate} onFire={handleFire} />
 
-				<Fire position={fire.from} />
 				<Impact position={fire.to} />
 			</g>
 		</svg>
