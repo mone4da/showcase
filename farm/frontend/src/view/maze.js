@@ -28,7 +28,7 @@ let Maze = props => {
 	let {data, firerate, style, player, onMove} = props
 
 	let [position, setPosition] = useState(player.position)
-	let [fire, setFire] = useState({from: null, to: null})
+	let [fire, setFire] = useState({position: null, orientation: null})
 
 	let width = data[0].length
 	let height = data.length
@@ -38,8 +38,8 @@ let Maze = props => {
 		y: style.height/height
 	}
 
-	let handleFire = (from, to) => {
-		setFire({from, to})
+	let handleFire = (data) => {
+		setFire(data)
 	}
 
 	let handleKeydown = code => {
@@ -54,7 +54,7 @@ let Maze = props => {
 
 	useEffect(()=>{
 		return ()=>{
-			setTimeout(() => setFire({from: null, to: null}), 1000)
+			setTimeout(() => setFire({position: null, orientation: null}), 1000)
 		}
 	}, [fire])
 
@@ -66,7 +66,7 @@ let Maze = props => {
 
 				<Chickens players={[position]} rate={firerate} onFire={handleFire} />
 
-				<Impact position={fire.to} />
+				<Impact data={fire} />
 			</g>
 		</svg>
 }

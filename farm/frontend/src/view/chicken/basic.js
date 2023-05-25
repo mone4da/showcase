@@ -133,7 +133,7 @@ const Chicken = props => {
 
 	for (let player of players)
 		if (setting.bullets && Math.random()*1000 < setting.rate && onFire){
-			onFire(position, player)
+			onFire({position, orientation})
 			setting.bullets--
 			if (!setting.bullets)
 				setting.bullets = maxBullets
