@@ -51,9 +51,15 @@ let generate = (width, height, entry, exit, ratio, randomizer, drilling) => {
 
 	let data = initialize( width, height, entry, exit )
 
-	for(let i=0; i<randomizer; i++){
+	for(let i=0; i<randomizer >> 2; i++){
 		makepath(data, entry, exit, width, height, ratio, drilling)
 		entry = {x: Math.floor(Math.random()*width), y : Math.floor(Math.random()*height)}
+	}
+
+
+	for(let i=0; i<randomizer >> 2; i++){
+		makepath(data, exit, entry, width, height, ratio, drilling)
+		exit = {x: Math.floor(Math.random()*width), y : Math.floor(Math.random()*height)}
 	}
 
 	return data

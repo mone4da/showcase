@@ -1,13 +1,18 @@
 import React from 'react'
 import Maze from './maze'
+import ControlPanel from './controlpanel'
 
 import style from './style'
 
 let View = props => {
 	let {state, event, onUpdate} = props
 
-	let handleMove = pos => {
+	let handleMaze = pos => {
 		onUpdate && onUpdate(pos, 'move')
+	}
+
+	let handleControlPanel = (data, id) => {
+		onUpdate && onUpdate({data, id}, 'cp')
 	}
 
 	return <div style={style}>
@@ -20,8 +25,13 @@ let View = props => {
 				player = {state.user.player}
 				firerate = {state.system.setting.firerate}
 				event={event}
-				onMove = {handleMove}
+				onMove = {handleMaze}
 			/>
+
+			<ControlPanel
+				style={style.controlpanel}
+				onUpdate = {handleControlPanel}
+			 />
 		</div>
 }
 

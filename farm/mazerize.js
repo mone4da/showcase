@@ -1,4 +1,12 @@
-const config = require('./config').maze.params
+const config = {
+	width : 30,
+	height : 30,
+	entry: {x: 0, y: 7},
+	exit: {x: 29, y: 26},
+	ratio: 100,
+	randomizer: 1500,
+	drilling: .8
+}
 
 const generate = require('./mazer')
 

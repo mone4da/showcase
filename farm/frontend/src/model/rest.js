@@ -33,7 +33,15 @@ class Rest{
 	}
 
 	move(data){
-		this.post('move', data)
+		this.post('change/position', data)
+	}
+
+	color(data){
+		this.post('change/color', data)
+	}
+
+	enter(data){
+		this.post('enter', data)
 	}
 
 	async config(){

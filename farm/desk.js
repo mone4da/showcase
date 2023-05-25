@@ -19,7 +19,9 @@ class Desk{
 
 		app.get('/config', (req, res) => this.loadConfig(res, config))
 		app.get('/goyaala', (req, res) => this.goyaala(config, res))
-		app.post('/move', (req, res) => this.move(req, res))
+		app.post('/change/position', (req, res) => this.change('position', req, res))
+		app.post('/change/color', (req, res) => this.change('color', req, res))
+		app.post('/enter', (req, res) => this.enter(req, res))
 
 		http.Server(app).listen(config.port, () => this.onListening())
 
@@ -42,7 +44,8 @@ class Desk{
 	}
 
 
-	move(req, res){}
+	change(property, req, res){}
+	enter(req, res){}
 
 	goyaala(config, res){
 		let token = uuid().toUpperCase()
@@ -50,9 +53,11 @@ class Desk{
 	}
 
 	loadConfig(res, config){
-		let maze = fs.readFileSync(config.maze.data, 'utf8')
+		let data = fs.readFileSync(config.maze.data, 'utf8')
 		res.json({
-			maze: JSON.parse(maze),
+			maze: JSON.parse(data),
+			entry: config.maze.entry,
+			exit: config.maze.exit
 		})
 	}
 

@@ -3,9 +3,18 @@ import Rest from './rest'
 class Session{
 	constructor(){}
 
+	enter(player, data){
+		this.rest.enter({player, ...data})
+	}
+
 	move(player, data){
 		this.rest.move({player, ...data})
 	}
+
+	color(player, data){
+		this.rest.color({player, ...data})
+	}
+
 
 	connect(path){
 		let source = new EventSource(path)
@@ -17,7 +26,8 @@ class Session{
 			let msg = JSON.parse(data)
 			switch(msg.id){
 				case 'welcome' : this.onWelcome(msg); break;
-				case 'move' : this.onMove(msg); break;
+				case 'change' : this.onChange(msg); break;
+				case 'enter' : this.onEnter(msg); break;
 			}
 		}catch(e){
 			console.log(e)
@@ -26,7 +36,8 @@ class Session{
 
 	onWelcome(msg){}
 
-	onMove(msg){}
+	onChange(msg){}
+	onEnter(msh){}
 
 	async initialize(initialized ){
 		this.rest = new Rest()
@@ -36,6 +47,7 @@ class Session{
 
 		if (this.state.ok){
 			this.state.system.maze = config.data.maze
+			this.state.user.player.position = config.data.entry
 		}
 
 		this.connect('/goyaala')

@@ -13,11 +13,17 @@ class Model extends Session{
 		this.state.user.token = msg.data
 		console.log('welcome!!', this.state.user.token)
 		this.notify(msg.timestamp, 'token')
+
+		this.enter(this.state.user.token, this.state.user.player)
 	}
 
-	onMove(msg){
+	onChange(msg){
 		let data = JSON.stringify(msg.data)
-		console.log('move', data)
+		console.log('change', data)
+	}
+
+	onEnter (msg){
+		console.log('enter', msg)
 	}
 
 
@@ -27,11 +33,29 @@ class Model extends Session{
 
 	//methods
 	update(data, id){
+		console.log(data, id)
 		switch(id){
-			case 'move' :  this.move(this.state.user.token, {...data, material: this.state.user.player.material}); break;
+			case 'move' :  this.handleMove(data); break;
+			case 'cp' : this.handleControlPanel(data); break;
 	 	}
 	}
 
+	handleControlPanel(info){
+		switch(info.id){
+			case 'color' : this.handleCPcolor(info.data); break;
+		}
+	}
+
+	handleCPcolor(data){
+		this.state.user.player.material.color = data;
+		this.color(this.state.user.token, {material: this.state.user.player.material})
+
+		this.notify(Date.now(), 'color')
+	}
+
+	handleMove(data){
+		this.move(this.state.user.token, {...data, material: this.state.user.player.material})
+	}
 }
 
 export default Model

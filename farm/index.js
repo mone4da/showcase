@@ -11,14 +11,23 @@ class Desk extends require('./desk'){
 		console.log('on', config.port)
 	}
 
-	move(req, res){
+	change(property, req, res){
 		let msg = req.body
-		this.message(msg.player, '', msg, 'move', this.channel.data, 1)
-		console.log('move', msg.player, msg)
+		this.message(msg.player, '', {...msg, property}, 'change', this.channel.data, 1)
+
+		console.log('change', msg)
 
 		res.json({})
 	}
 
+	enter(req, res){
+		let msg = req.body
+		this.message(msg.player, '', msg, 'enter', this.channel.data, 1)
+
+		console.log('enter', msg)
+
+		res.json({})
+	}
 }
 
 class App extends require('./netgate'){
@@ -36,15 +45,16 @@ class App extends require('./netgate'){
 		super.onNetworkMessage(channel, msg, extra)
 
 		switch(msg.subject){
-			case 'move' : this.onMove(channel, msg); break;
+			case 'change' : this.onChange(channel, msg); break;
 			default: console.log(msg)
 		}
 	}
 
-	onMove(channel, msg){
+	onChange(channel, msg){
 		this.desk.broadcast(channel, msg)
 	}
 
 }
 
 new App()
+
