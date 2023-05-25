@@ -32,6 +32,11 @@ class Rest{
 		}
 	}
 
+	move(data){
+		console.log('rest-move', data)
+		this.post('move', data)
+	}
+
 	async config(){
 		return await this.get('config')
 	}

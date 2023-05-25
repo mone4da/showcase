@@ -1,5 +1,7 @@
 import {useState} from 'react'
 
+const maxBullets = 10
+
 const data = {
 	rufus : {
 		position : {x: 50, z: 30},
@@ -8,7 +10,8 @@ const data = {
 		material : {
 			color: '#0D516C',
 			opacity: 1
-		}
+		},
+		bullets: maxBullets
 	},
 
 	gunter : {
@@ -18,17 +21,19 @@ const data = {
 		material : {
 			color: 'brown',
 			opacity: 1
-		}
+		},
+		bullets: maxBullets
 	},
 
 	default : {
 		position : {x: 20, z: 20},
-		orientation: 30,
+		orientation: 0,
 		rate: 60,
 		material : {
 			color: 'gray',
 			opacity: 1
-		}
+		},
+		bullets: maxBullets
 	},
 }
 
@@ -52,8 +57,6 @@ const Head = props => {
 
 }
 
-const maxBullets = 10
-let bullets = maxBullets
 
 const Body = props => {
 	let {color} = props
@@ -116,6 +119,8 @@ const Ammo = props => {
 		</>
 }
 
+const speed = 1
+
 const Chicken = props => {
 	let {id, players, size, onFire} = props
 
@@ -124,14 +129,14 @@ const Chicken = props => {
 	let [position, setPosition] = useState(setting.position)
 	let [orientation, setOrientation] = useState(setting.orientation)
 
-	setTimeout(() => setOrientation(o => o + 1), 100)
+	setTimeout(() => setOrientation(o => o + speed), 100)
 
 	for (let player of players)
-		if (bullets && Math.random()*1000 < setting.rate && onFire){
+		if (setting.bullets && Math.random()*1000 < setting.rate && onFire){
 			onFire(position, player)
-			bullets--
-			if (!bullets)
-				bullets = maxBullets
+			setting.bullets--
+			if (!setting.bullets)
+				setting.bullets = maxBullets
 		}
 
 
@@ -143,7 +148,7 @@ const Chicken = props => {
 
 				<Outfit />
 
-				<Ammo bullets={bullets} />
+				<Ammo bullets={setting.bullets} />
 			</g>
 
 		</g>

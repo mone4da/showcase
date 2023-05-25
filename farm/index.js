@@ -1,4 +1,3 @@
-
 const config = require('./config')
 
 class Desk extends require('./desk'){
@@ -10,6 +9,14 @@ class Desk extends require('./desk'){
 
 	onListening(){
 		console.log('on', config.port)
+	}
+
+	move(req, res){
+		let msg = req.body
+		this.message(msg.player, '', msg, 'move', this.channel.data, 1)
+		console.log('move', msg.player, msg)
+
+		res.json({})
 	}
 
 }
@@ -29,18 +36,13 @@ class App extends require('./netgate'){
 		super.onNetworkMessage(channel, msg, extra)
 
 		switch(msg.subject){
-			case 'yaala' : this.onYaala(channel, msg); break;
-			case 'yoole' : this.onYoole(channel, msg); break;
+			case 'move' : this.onMove(channel, msg); break;
 			default: console.log(msg)
 		}
 	}
 
-	onYaala(channel, msg){
+	onMove(channel, msg){
 		this.desk.broadcast(channel, msg)
-	}
-
-	onYoole(channel, msg){
-		this.desk.send(channel, msg)
 	}
 
 }

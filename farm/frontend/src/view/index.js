@@ -6,6 +6,10 @@ import style from './style'
 let View = props => {
 	let {state, event, onUpdate} = props
 
+	let handleMove = pos => {
+		onUpdate && onUpdate(pos, 'move')
+	}
+
 	return <div style={style}>
 			<Maze
 				style={style.scene}
@@ -16,6 +20,7 @@ let View = props => {
 				player = {state.user.player}
 				firerate = {state.system.setting.firerate}
 				event={event}
+				onMove = {handleMove}
 			/>
 		</div>
 }

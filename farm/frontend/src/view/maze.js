@@ -25,7 +25,7 @@ const Walls = props => {
 }
 
 let Maze = props => {
-	let {data, firerate, style, player} = props
+	let {data, firerate, style, player, onMove} = props
 
 	let [position, setPosition] = useState(player.position)
 	let [fire, setFire] = useState({from: null, to: null})
@@ -43,7 +43,9 @@ let Maze = props => {
 	}
 
 	let handleKeydown = code => {
-		setPosition(position => newPosition(data, code, position))
+		let pos = newPosition(data, code, position)
+		setPosition(position => pos)
+		onMove && onMove(pos)
 	}
 
 	useKeyboard({

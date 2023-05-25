@@ -19,8 +19,7 @@ class Desk{
 
 		app.get('/config', (req, res) => this.loadConfig(res, config))
 		app.get('/goyaala', (req, res) => this.goyaala(config, res))
-		app.post('/yaala', (req, res) => this.yaala(req, res))
-		app.post('/yoole', (req, res) => this.yoole(req, res))
+		app.post('/move', (req, res) => this.move(req, res))
 
 		http.Server(app).listen(config.port, () => this.onListening())
 
@@ -43,21 +42,7 @@ class Desk{
 	}
 
 
-	yoole(req, res){
-		let msg = req.body.data
-		console.log('yoole', msg)
-		//this.message(msg.from, msg.to, msg.data, 'yoole', msg.channel, 0)
-
-		res.json({})
-	}
-
-	yaala(req, res){
-		let msg = req.body.data
-		this.netgate.signal( this.message(msg.from, '', msg.data, 'yaala', this.channel.data, 1) )
-
-		res.json({})
-	}
-
+	move(req, res){}
 
 	goyaala(config, res){
 		let token = uuid().toUpperCase()

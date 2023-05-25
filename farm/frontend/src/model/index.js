@@ -15,9 +15,9 @@ class Model extends Session{
 		this.notify(msg.timestamp, 'token')
 	}
 
-	onIn(msg){
+	onMove(msg){
 		let data = JSON.stringify(msg.data)
-		console.log('in', data)
+		console.log('move', data)
 	}
 
 
@@ -28,6 +28,7 @@ class Model extends Session{
 	//methods
 	update(data, id){
 		switch(id){
+			case 'move' :  this.move(this.state.user.token, data); break;
 	 	}
 	}
 

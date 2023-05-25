@@ -3,14 +3,9 @@ import Rest from './rest'
 class Session{
 	constructor(){}
 
-	yaala(from, data){
-		this.rest.yaala({from, data})
+	move(player, data){
+		this.rest.move({player, ...data})
 	}
-
-	yoole(from, to, data){
-		this.rest.yoole({from, to, data})
-	}
-
 
 	connect(path){
 		let source = new EventSource(path)
@@ -22,7 +17,7 @@ class Session{
 			let msg = JSON.parse(data)
 			switch(msg.id){
 				case 'welcome' : this.onWelcome(msg); break;
-				case 'yaala' : this.onIn(msg); break;
+				case 'move' : this.onMove(msg); break;
 			}
 		}catch(e){
 			console.log(e)
@@ -31,9 +26,7 @@ class Session{
 
 	onWelcome(msg){}
 
-	onIn(msg){
-		console.log('yaala', msg)
-	}
+	onMove(msg){}
 
 	async initialize(initialized ){
 		this.rest = new Rest()
