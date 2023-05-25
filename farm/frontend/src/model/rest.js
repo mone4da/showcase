@@ -33,7 +33,6 @@ class Rest{
 	}
 
 	move(data){
-		console.log('rest-move', data)
 		this.post('move', data)
 	}
 

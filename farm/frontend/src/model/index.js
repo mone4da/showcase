@@ -28,7 +28,7 @@ class Model extends Session{
 	//methods
 	update(data, id){
 		switch(id){
-			case 'move' :  this.move(this.state.user.token, data); break;
+			case 'move' :  this.move(this.state.user.token, {...data, material: this.state.user.player.material}); break;
 	 	}
 	}
 
