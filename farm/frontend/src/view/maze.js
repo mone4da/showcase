@@ -25,7 +25,7 @@ const Walls = props => {
 }
 
 let Maze = props => {
-	let {data, firerate, style, player, onMove} = props
+	let {data, chickens, firerate, style, player, onMove} = props
 
 	let [position, setPosition] = useState(player.position)
 	let [fire, setFire] = useState({position: null, orientation: null})
@@ -64,7 +64,7 @@ let Maze = props => {
 
 				<Player position={position} material={player.material} />
 
-				<Chickens players={[position]} rate={firerate} onFire={handleFire} />
+				<Chickens list={chickens} players={[position]} rate={firerate} onFire={handleFire} />
 
 				<Impact data={fire} />
 			</g>

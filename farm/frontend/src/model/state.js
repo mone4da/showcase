@@ -3,7 +3,7 @@ const state =  {
 	system: {
 		maze: [],
 
-		chickens : [],
+		chickens : {},
 
 		impacts : [],
 

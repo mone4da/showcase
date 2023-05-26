@@ -57,7 +57,8 @@ class Desk{
 		res.json({
 			maze: JSON.parse(data),
 			entry: config.maze.entry,
-			exit: config.maze.exit
+			exit: config.maze.exit,
+			chickens: config.maze.chickens
 		})
 	}
 

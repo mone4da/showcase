@@ -1,42 +1,5 @@
 import {useState} from 'react'
 
-const maxBullets = 10
-
-const data = {
-	rufus : {
-		position : {x: 50, z: 30},
-		orientation: 0,
-		rate: 20,
-		material : {
-			color: '#0D516C',
-			opacity: 1
-		},
-		bullets: maxBullets
-	},
-
-	gunter : {
-		position : {x: 30, z: 50},
-		orientation: 0,
-		rate: 80,
-		material : {
-			color: 'brown',
-			opacity: 1
-		},
-		bullets: maxBullets
-	},
-
-	default : {
-		position : {x: 20, z: 20},
-		orientation: 0,
-		rate: 60,
-		material : {
-			color: 'gray',
-			opacity: 1
-		},
-		bullets: maxBullets
-	},
-}
-
 const Head = props => {
 	let {color} = props
 	return	<>
@@ -90,7 +53,7 @@ const Outfit = props => {
 }
 
 const Ammo = props => {
-	let {bullets} = props
+	let {bullets, max} = props
 
 	let bullet = i => (
 			<ellipse
@@ -113,34 +76,31 @@ const Ammo = props => {
 				/>
 	)
 
-	let items = [...Array(maxBullets)]
+	let items = [...Array(max)]
 	return <>
 			{ items.map((_,i) => i < bullets ? bullet(i) : empty(i)) }
 		</>
 }
 
-const speed = 1
-
 const Chicken = props => {
-	let {id, players, size, onFire} = props
-
-	let setting = data[id] || data.default
+	let {setting, players, size, onFire} = props
 
 	let [position, setPosition] = useState(setting.position)
 	let [orientation, setOrientation] = useState(setting.orientation)
+	let [bullets, setBullets] = useState(setting.bullets)
 
-	setTimeout(() => setOrientation(o => o + speed), 100)
+	setTimeout(() => setOrientation(o => o + setting.speed.rotation), 100)
 
 	for (let player of players)
-		if (setting.bullets && Math.random()*1000 < setting.rate && onFire){
+		if (bullets && Math.random()*1000 < setting.rate && onFire){
 			onFire({position, orientation})
-			setting.bullets--
-			if (!setting.bullets)
-				setting.bullets = maxBullets
+			//setBullets(value => value - 1)
+			if (!bullets)
+				setBullets(setting.bullets)
 		}
 
 
-	return 	<g transform={`translate(${position.x}, ${position.z}) scale(${size}, ${size}) rotate(${orientation})`}>
+	return 	<g transform={`translate(${position.x}, ${position.z}) scale(${setting.size}, ${setting.size}) rotate(${orientation})`}>
 			<g transform={`translate(${-300}, ${-300} )`}>
 				<Head color={setting.material.color} />
 
@@ -148,7 +108,7 @@ const Chicken = props => {
 
 				<Outfit />
 
-				<Ammo bullets={setting.bullets} />
+				<Ammo bullets={bullets} max={setting.bullets} />
 			</g>
 
 		</g>

@@ -1,14 +1,12 @@
 
 import {Chicken} from './basic'
 
-let list = [] //['rufus','gunter','mona']
-
 const Chickens = props => {
-	let {players, onFire} = props
+	let {list, players, onFire} = props
 	let size = .02
 
 	return <>
-			{list.map(id => <Chicken id={id} players={players} size={size} onFire={onFire}/>)}
+			{Object.values(list).map(setting => <Chicken setting={setting} players={players} onFire={onFire}/>)}
 		</>
 }
 

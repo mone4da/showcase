@@ -48,6 +48,7 @@ class Session{
 		if (this.state.ok){
 			this.state.system.maze = config.data.maze
 			this.state.user.player.position = config.data.entry
+			this.state.system.chickens = config.data.chickens
 		}
 
 		this.connect('/goyaala')
