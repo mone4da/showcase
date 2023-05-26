@@ -40,7 +40,7 @@ module.exports = {
 		chickens: {
 			rufus : {
 				position : {x: 50, z: 30},
-				size: .01,
+				size: .005,
 				orientation: -30,
 				rate: 20,
 				speed : {
@@ -56,7 +56,7 @@ module.exports = {
 
 			gunter : {
 				position : {x: 30, z: 50},
-				size: .01,
+				size: .005,
 				orientation: -30,
 				rate: 80,
 				speed : {
@@ -72,7 +72,7 @@ module.exports = {
 
 			default : {
 				position : {x: 20, z: 20},
-				size: .01,
+				size: .005,
 				orientation: -30,
 				rate: 60,
 				speed : {

@@ -33,7 +33,6 @@ class Model extends Session{
 
 	//methods
 	update(data, id){
-		console.log(data, id)
 		switch(id){
 			case 'move' :  this.handleMove(data); break;
 			case 'cp' : this.handleControlPanel(data); break;

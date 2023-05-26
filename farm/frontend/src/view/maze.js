@@ -42,6 +42,10 @@ let Maze = props => {
 		setFire(data)
 	}
 
+	let handleHit = () => {
+		console.log('I am hit!')
+	}
+
 	let handleKeydown = code => {
 		let pos = newPosition(data, code, position)
 		setPosition(position => pos)
@@ -66,7 +70,7 @@ let Maze = props => {
 
 				<Chickens list={chickens} players={[position]} rate={firerate} onFire={handleFire} />
 
-				<Impact data={fire} />
+				<Impact data={fire} scale={scale} player={position} onHit={handleHit} />
 			</g>
 		</svg>
 }
