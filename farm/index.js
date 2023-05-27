@@ -28,6 +28,16 @@ class Desk extends require('./desk'){
 
 		res.json({})
 	}
+
+	exit(req, res){
+		let msg = req.body
+		this.message(msg.player, '', msg, 'exit', this.channel.data, 1)
+
+		console.log('exit', msg)
+
+		res.json({})
+	}
+
 }
 
 class App extends require('./netgate'){

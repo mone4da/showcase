@@ -44,6 +44,10 @@ class Rest{
 		this.post('enter', data)
 	}
 
+	exit(data){
+		this.post('exit', data)
+	}
+
 	async config(){
 		return await this.get('config')
 	}

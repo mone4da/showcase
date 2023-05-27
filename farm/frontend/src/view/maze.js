@@ -25,7 +25,7 @@ const Walls = props => {
 }
 
 let Maze = props => {
-	let {data, chickens, firerate, style, player, onMove} = props
+	let {data, gate, chickens, firerate, style, player, onMove, onExit} = props
 
 	let [position, setPosition] = useState(player.position)
 	let [fire, setFire] = useState({position: null, orientation: null})
@@ -48,6 +48,12 @@ let Maze = props => {
 
 	let handleKeydown = code => {
 		let pos = newPosition(data, code, position)
+
+		if (pos.x === gate.x && pos.z === gate.z){
+			onExit && onExit(pos)
+			return
+		}
+
 		setPosition(position => pos)
 		onMove && onMove(pos)
 	}

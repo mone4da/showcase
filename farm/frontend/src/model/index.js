@@ -35,6 +35,7 @@ class Model extends Session{
 	update(data, id){
 		switch(id){
 			case 'move' :  this.handleMove(data); break;
+			case 'exit' : this.handleExit(data); break;
 			case 'cp' : this.handleControlPanel(data); break;
 	 	}
 	}
@@ -54,6 +55,10 @@ class Model extends Session{
 
 	handleMove(data){
 		this.move(this.state.user.token, {...data, material: this.state.user.player.material})
+	}
+
+	handleExit(data){
+		this.exit(this.state.user.token, data)
 	}
 }
 

@@ -15,6 +15,9 @@ class Session{
 		this.rest.color({player, ...data})
 	}
 
+	exit(player, data){
+		this.rest.exit({player, ...data})
+	}
 
 	connect(path){
 		let source = new EventSource(path)
@@ -28,6 +31,7 @@ class Session{
 				case 'welcome' : this.onWelcome(msg); break;
 				case 'change' : this.onChange(msg); break;
 				case 'enter' : this.onEnter(msg); break;
+				case 'exit' : this.onExit(msg); break;
 			}
 		}catch(e){
 			console.log(e)
@@ -37,7 +41,8 @@ class Session{
 	onWelcome(msg){}
 
 	onChange(msg){}
-	onEnter(msh){}
+	onEnter(msg){}
+	onExit(msg){}
 
 	async initialize(initialized ){
 		this.rest = new Rest()
@@ -47,6 +52,7 @@ class Session{
 
 		if (this.state.ok){
 			this.state.system.maze = config.data.maze
+			this.state.system.exit = config.data.exit
 			this.state.user.player.position = config.data.entry
 			this.state.system.chickens = config.data.chickens
 		}

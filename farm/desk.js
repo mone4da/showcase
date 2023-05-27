@@ -22,6 +22,7 @@ class Desk{
 		app.post('/change/position', (req, res) => this.change('position', req, res))
 		app.post('/change/color', (req, res) => this.change('color', req, res))
 		app.post('/enter', (req, res) => this.enter(req, res))
+		app.post('/exit', (req, res) => this.exit(req, res))
 
 		http.Server(app).listen(config.port, () => this.onListening())
 
@@ -46,6 +47,7 @@ class Desk{
 
 	change(property, req, res){}
 	enter(req, res){}
+	exit(req, res){}
 
 	goyaala(config, res){
 		let token = uuid().toUpperCase()

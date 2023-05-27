@@ -7,8 +7,8 @@ import style from './style'
 let View = props => {
 	let {state, event, onUpdate} = props
 
-	let handleMaze = pos => {
-		onUpdate && onUpdate(pos, 'move')
+	let handleMaze = (pos,id) => {
+		onUpdate && onUpdate(pos, id)
 	}
 
 	let handleControlPanel = (data, id) => {
@@ -19,13 +19,15 @@ let View = props => {
 			<Maze
 				style={style.scene}
 				data={state.system.maze}
+				gate={state.system.exit}
 				chickens={state.system.chickens}
 				impacts = {state.system.impacts}
 				targets = {state.user.targets}
 				player = {state.user.player}
 				firerate = {state.system.setting.firerate}
 				event={event}
-				onMove = {handleMaze}
+				onMove = {pos => handleMaze(pos, 'move')}
+				onExit={pos => handleMaze(pos, 'exit')}
 			/>
 
 			<ControlPanel

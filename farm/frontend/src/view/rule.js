@@ -1,8 +1,17 @@
 
+let inside = (x,y) => x > 0 && y > 0
+let outside = (x,y) => !inside(x,y)
+
+const nodir = {dx:0, dz:0}
+
 let newDirection = (data, code, p) => {
 
-	let nodir = {dx:0, dz:0}
-	let tryDirection = d => data[p.z + d.dz][p.x + d.dx] ? nodir : d
+	let tryDirection = d => {
+		let z = p.z + d.dz
+		let x = p.x + d.dx
+
+		return outside(x,z) || data[z][x] ? nodir : d
+	}
 
 	switch(code){
 		case 'ArrowUp' : return tryDirection({dx: 0, dz: -1})
