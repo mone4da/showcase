@@ -5,8 +5,6 @@ import Controller from './controller'
 import Trigger from './trigger'
 import Info from './info'
 
-//const maxAmos = 1000000
-
 const ControlPanel = props => {
 	let {style, state,event, onUpdate} = props
 
@@ -22,6 +20,7 @@ const ControlPanel = props => {
 
 	return <div style={style}>
 			<Menu
+				chickens={state.system.chickens}
 				style={style.menu}
 			/>
 

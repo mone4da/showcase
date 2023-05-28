@@ -25,7 +25,7 @@ const Info = props => {
 
 	return <div style={style}>
 			<svg style={local.style}>
-				<rect y='2%' height='94%' width={`${amosleft}%`} fill='red' />
+				<rect y='2%' height='94%' width={`${amosleft}%`} fill='gray' />
 			</svg>
 			<div style={local.style.text}>
 				<label>{amosleft} %</label>

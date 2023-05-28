@@ -18,8 +18,15 @@ const style = {
 		},
 
 		controller: {
-			display : 'flex',
-			background: 'blue'
+			display : 'grid',
+			gridTemplateRows: '65% auto',
+			background: 'blue',
+
+			rotation: {
+				display: 'flex',
+				flexDirection: 'row',
+				justifyContent: 'space-between'
+			}
 		},
 
 		trigger: {
