@@ -14,13 +14,13 @@ const style = {
 
 		menu: {
 			display : 'flex',
-			background: 'red'
+			background: 'black'
 		},
 
 		controller: {
 			display : 'grid',
 			gridTemplateRows: '65% auto',
-			background: 'blue',
+			background: 'lightgray',
 
 			rotation: {
 				display: 'flex',
@@ -31,7 +31,7 @@ const style = {
 
 		trigger: {
 			display : 'flex',
-			background: 'orange'
+			background: 'black'
 		},
 
 		info: {
