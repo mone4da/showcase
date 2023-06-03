@@ -1,19 +1,10 @@
 
 const state =  {
 	system: {
-		chickens : {},
-
-		setting : {
-			max: {
-				amos: 5000
-			}
-		}
+		data: [...Array(31)].map(_ => 0)
 	},
 
 	user: {
-		amos: 1000000,
-		setting : {
-		}
 	}
 
 }

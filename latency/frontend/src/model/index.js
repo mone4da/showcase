@@ -13,12 +13,12 @@ class Model extends Session{
 		this.state.user.token = msg.data
 		console.log('welcome!!', this.state.user.token)
 		this.notify(msg.timestamp, 'token')
-
-		this.enter(this.state.user.token, this.state.user.player)
 	}
 
 	onData(msg){
-		console.log(msg.latency, msg.channel)
+		let index = parseInt(msg.channel)
+		this.state.system.data[index] = msg.latency
+		this.notify(Date.now(), 'data')
 	}
 
 	notify(data, id){

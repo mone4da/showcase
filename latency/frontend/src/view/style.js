@@ -7,9 +7,11 @@ const style = {
 	color: '#BF9000',
 
 	monitor: {
-		display : 'grid',
-		gridTemplateRows: 'auto',
-		background: 'lightgray'
+		display : 'flex',
+		flexDirection: 'row',
+		justifyContent: 'center',
+		background: 'black',
+		width: '100%'
 	}
 }
 
