@@ -30,7 +30,7 @@ class Desk{
 	onListening(){}
 
 	notify(data){
-		this.session.notify(data)
+		this.session && this.session.notify(data)
 	}
 }
 

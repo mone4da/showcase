@@ -8,10 +8,10 @@ const style = {
 
 	monitor: {
 		display : 'flex',
-		flexDirection: 'row',
-		justifyContent: 'center',
+		flexDirection: 'column',
+		alignItems: 'center',
 		background: 'black',
-		width: '100%'
+		width: '800'
 	}
 }
 

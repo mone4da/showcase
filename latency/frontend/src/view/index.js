@@ -9,7 +9,8 @@ let View = props => {
 	return <div style={style.monitor}>
 			<Monitor
 				Component={Component}
-				state={state}
+				data={state.system.data}
+				regions={state.system.regions}
 				event={event}
 			 />
 		</div>

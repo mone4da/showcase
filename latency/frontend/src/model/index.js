@@ -1,6 +1,8 @@
 import state from './state'
 import Session from './session'
 
+const max = list => list.reduce((max,a) => a > max ? a : max)
+
 class Model extends Session{
 	constructor( initialized ){
 		super()
@@ -16,8 +18,11 @@ class Model extends Session{
 	}
 
 	onData(msg){
-		let index = parseInt(msg.channel)
-		this.state.system.data[index] = msg.latency
+		let index = msg.channel
+
+		let data = this.state.system.data[index]
+		this.state.system.data[index] = [msg.latency,...data.slice(0,data.length-1)]
+
 		this.notify(Date.now(), 'data')
 	}
 

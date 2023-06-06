@@ -24,10 +24,10 @@ class Session{
 
 	notify(data){
 		try{
-		let latency = data.latency
-		let channel = data.channel.data.map(a => BigInt(a)).reduce((r,a) => (r<<8n) + a) + ''
-		let msg = {latency, channel}
-		this.res.write(`data: ${JSON.stringify({id:'data',...msg})}\n\n`)
+			let latency = data.latency
+			let channel = parseInt(data.channel[0].toString(2).padStart(8,'0').split('').reverse().join(''),2)
+			let msg = {latency, channel}
+			this.res.write(`data: ${JSON.stringify({id:'data',...msg})}\n\n`)
 		}catch(e){
 			console.log(e)
 		}
