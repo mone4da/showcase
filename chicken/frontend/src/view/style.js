@@ -18,8 +18,8 @@ const style = {
 		},
 
 		controller: {
-			display : 'grid',
-			gridTemplateRows: '65% auto',
+			display : 'flex',
+			flexDirection: 'column',
 			background: 'lightgray',
 
 			rotation: {

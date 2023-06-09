@@ -34,7 +34,8 @@ class Model extends Session{
 	//methods
 	update(data, id){
 		switch(id){
-			case 'move' :  this.handleMove(data); break;
+			case 'rotate' :  this.handleMove(data, id); break;
+			case 'translate' :  this.handleMove(data, id); break;
 			case 'exit' : this.handleExit(data); break;
 			case 'fire' : this.handleFire(data); break;
 	 	}
@@ -46,8 +47,10 @@ class Model extends Session{
 		}
 	}
 
-	handleMove(data){
-		this.move(this.state.user.token, {...data, material: this.state.user.player.material})
+
+	handleMove(data, type){
+		console.log(type, data)
+		this.move(this.state.user.token, {...data, type})
 	}
 
 	handleExit(data){

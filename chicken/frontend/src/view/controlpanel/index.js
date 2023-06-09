@@ -14,6 +14,10 @@ const ControlPanel = props => {
 		setAmos(amos => amos ? amos - 1 : state.system.setting.max.amos)
 	}
 
+	let handleController = (data,id) => {
+		onUpdate && onUpdate(data,id)
+	}
+
 	useEffect(() => {
 		onUpdate && onUpdate(amos - 1, 'fire')
 	}, [amos])
@@ -26,6 +30,7 @@ const ControlPanel = props => {
 
 			<Controller
 				style={style.controller}
+				onChange={handleController}
 			/>
 
 			<Trigger
