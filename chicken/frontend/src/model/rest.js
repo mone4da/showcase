@@ -32,9 +32,14 @@ class Rest{
 		}
 	}
 
-	move(data){
+	translate(data){
 		this.post('change/position', data)
 	}
+
+	rotate(data){
+		this.post('change/direction', data)
+	}
+
 
 	fire(data){
 		this.post('change/amos', data)

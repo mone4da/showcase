@@ -1,8 +1,7 @@
 
-const maxBullets = 10
-
 module.exports = {
 	rufus : {
+		name: 'Rufus',
 		position : {x: 50, z: 30},
 		size: .005,
 		orientation: -30,
@@ -15,10 +14,11 @@ module.exports = {
 			color: '#0D516C',
 			opacity: 1
 		},
-		bullets: maxBullets
+		bullets: 5000
 	},
 
 	gunter : {
+		name: 'Gunter',
 		position : {x: 30, z: 50},
 		size: .005,
 		orientation: -30,
@@ -31,10 +31,11 @@ module.exports = {
 			color: 'brown',
 			opacity: 1
 		},
-		bullets: maxBullets
+		bullets: 5000
 	},
 
-	default : {
+	mona : {
+		name: 'Mona',
 		position : {x: 20, z: 20},
 		size: .005,
 		orientation: -30,
@@ -47,6 +48,6 @@ module.exports = {
 			color: 'gray',
 			opacity: 1
 		},
-		bullets: maxBullets
+		bullets: 5000
 	},
 }

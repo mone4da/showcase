@@ -20,6 +20,7 @@ class Desk{
 		app.get('/config', (req, res) => this.loadConfig(res, config))
 		app.get('/goyaala', (req, res) => this.goyaala(config, res))
 		app.post('/change/position', (req, res) => this.change('position', req, res))
+		app.post('/change/direction', (req, res) => this.change('direction', req, res))
 		app.post('/change/amos', (req, res) => this.change('amos', req, res))
 		app.post('/enter', (req, res) => this.enter(req, res))
 		app.post('/exit', (req, res) => this.exit(req, res))

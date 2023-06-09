@@ -7,9 +7,14 @@ class Session{
 		this.rest.enter({player, ...data})
 	}
 
-	move(player, data){
-		this.rest.move({player, ...data})
+	rotate(player, data){
+		this.rest.rotate({player, ...data})
 	}
+
+	translate(player, data){
+		this.rest.translate({player, ...data})
+	}
+
 
 	fire(player, data){
 		this.rest.fire({player, amos : data})

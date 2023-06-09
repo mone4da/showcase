@@ -15,7 +15,7 @@ class Desk extends require('./desk'){
 		let msg = req.body
 		this.message(msg.player, '', {...msg, property}, 'change', this.channel.data, 1)
 
-		console.log('change', msg)
+		console.log('change', {...msg, property})
 
 		res.json({})
 	}
