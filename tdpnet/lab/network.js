@@ -4,6 +4,7 @@ const {Worker, workerData} = require('node:worker_threads')
 class Network{
 	constructor(config, data){
 		this.nodes = {}
+		console.log(data.nodes)
 		for(let node of data.nodes)
 			this.createNode(node.id, config.path, data.links)
 
@@ -17,7 +18,7 @@ class Network{
 
 	createNode(id, path, links){
 		let node = new Worker(path, {workerData: {id}})
-		node.on('message', msg => this.onMessage(node.id, msg, links.filter(item => item.a === id).map(item => item.b)))
+		node.on('message', msg => this.onMessage(id, msg, links.filter(item => item.a === id).map(item => item.b)))
 		this.nodes[id] = node
 	}
 

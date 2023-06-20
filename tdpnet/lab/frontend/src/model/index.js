@@ -9,9 +9,11 @@ class Model extends Session{
 		this.state = state
 
 		this.initialize( async ()=> {
-			console.log('initializing')
-			this.data = await this.rest.data()
-			console.log(this.data)
+			let config = await this.rest.data()
+
+			this.state.data = config.data
+
+			initialized(this)
 		})
 	}
 
