@@ -4,28 +4,41 @@ const {Worker, workerData} = require('node:worker_threads')
 class Network{
 	constructor(config, data){
 		this.nodes = {}
-		console.log(data.nodes)
 		for(let node of data.nodes)
 			this.createNode(node.id, config.path, data.links)
 
-		this.broadcast('ready')
+		//this.signal(0, 'shortest')
 	}
 
 	broadcast(msg){
-		for(let node of Object.values(this.nodes))
-			node.postMessage(msg)
+		for(let entry of Object.values(this.nodes))
+			entry.node.postMessage(msg)
 	}
 
 	createNode(id, path, links){
-		let node = new Worker(path, {workerData: {id}})
-		node.on('message', msg => this.onMessage(id, msg, links.filter(item => item.a === id).map(item => item.b)))
+		let neightboors = links.filter(item => item.a === id).map(item => item.b)
+
+		let node = new Worker(path, {workerData: {id, neightboors}})
+		node.on('message', msg => this.onMessage(id, msg) )
 		this.nodes[id] = node
 	}
 
-	onMessage(id, msg, neightboors){
-		for(let nid of neightboors)
+	onMessage(id, msg){
+		for(let nid of msg.neightboors)
 			this.nodes[nid]?.postMessage(msg)
 	}
+
+	signal(id, msg){
+		for(let nid of this.nodes[id]?.neightboors)
+			this.nodes[nid]?.postMessage({channel: [id], signal: 1, data: msg})
+	}
+
+	send(id, channel, msg){
+		for(let nid of msg.neightboors)
+			this.nodes[nid]?.postMessage({channel, signal: 0, data: msg})
+	}
+
+	
 }
 
 module.exports = Network
