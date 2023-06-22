@@ -3,6 +3,9 @@ module.exports = {
 	content: './frontend/build',
 
 	network: {
-		path: './node.js'
+		path: {
+			e: './edge.js',
+			b: './node.js'
+		}
 	}
 }

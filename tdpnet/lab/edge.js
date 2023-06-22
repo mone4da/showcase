@@ -16,12 +16,12 @@ let signal = msg => {
 
 let send = data => {
 	let msg = transform(data)
-	msg && parentPort.postMessage( {...msg, neightboors})
+	msg && parentPort.postMessage( {...msg, signal: 0, neightboors})
 }
 
 let processMessage = msg => {
 	if (msg.signal){
-		signal(msg)
+		send(msg)
 		return
 	}
 
@@ -29,6 +29,6 @@ let processMessage = msg => {
 		send(msg)
 }
 
-console.log('node', id, 'alive')
+console.log('edge', id, 'alive')
 
 parentPort.on('message', msg => processMessage(msg))

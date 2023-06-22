@@ -24,13 +24,44 @@ const Bar = props => {
 
 const GUI = props => {
 	let style = {
+		display: 'grid',
+		gridTemplateRows: '80% 2px auto',
 		width: '100%',
 		height: '100%',
 		background: 'black',
-		color: 'orange'
+		color: 'orange',
+
+		response: {
+			resize: 'none',
+			width: '98%',
+			height: '95%',
+			border: 'none',
+			outline: 'none',
+			background: 'black',
+			color: 'orange'
+		},
+
+		query: {
+			resize: 'none',
+			width: '98%',
+			height: '93%',
+			border: 'none',
+			outline: 'none',
+			background: 'black',
+			color: 'orange'
+		},
+
+		division: {
+			background: 'orange',
+			width: '100%',
+			height: '2px'
+		}
 	}
 
 	return <div style={style}>
+			<textarea readOnly style={style.response} />
+			<div style={style.division} />
+			<textarea style={style.query} />
 		</div>
 }
 

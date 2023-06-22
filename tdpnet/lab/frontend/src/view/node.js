@@ -2,7 +2,7 @@ import {useState} from 'react'
 import Draggable from 'react-draggable'
 
 const Node = props => {
-	let {id, label, pos, r, onDragging} = props
+	let {id, label, type, pos, r, onDragging} = props
 
 	let [position, setPosition] = useState(pos)
 
@@ -19,7 +19,7 @@ const Node = props => {
 					cx = {r}
 					cy = {r}
 					r={r}
-					fill='black'
+					fill={type==='e' ? 'red' : 'black'}
 					style={{cursor: 'pointer'}}
 				/>
 		</Draggable>

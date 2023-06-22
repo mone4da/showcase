@@ -5,7 +5,7 @@ class Network{
 	constructor(config, data){
 		this.nodes = {}
 		for(let node of data.nodes)
-			this.createNode(node.id, config.path, data.links)
+			this.createNode(node.id, config.path[node.type], data.links)
 
 		//this.signal(0, 'shortest')
 	}

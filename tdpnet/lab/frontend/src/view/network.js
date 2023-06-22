@@ -37,6 +37,7 @@ const Network = props => {
 					key={item.id}
 					id={item.id}
 					label={item.name}
+					type={item.type}
 					pos={item.pos}
 					r = {20}
 					onDragging = {handleDragging}
