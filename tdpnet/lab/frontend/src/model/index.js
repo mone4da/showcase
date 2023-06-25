@@ -13,6 +13,8 @@ class Model extends Session{
 
 			this.state.data = config.data
 
+			console.log(this.state.data)
+
 			initialized(this)
 		})
 	}

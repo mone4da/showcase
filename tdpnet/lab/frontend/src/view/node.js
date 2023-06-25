@@ -1,8 +1,14 @@
 import {useState} from 'react'
 import Draggable from 'react-draggable'
 
+const color = {
+	'b': 'black',
+	'e' : 'red',
+	'g': 'green',
+	'r' : 'blue'}
+
 const Node = props => {
-	let {id, label, type, pos, r, onDragging} = props
+	let {id, view, label, type, pos, r, onDragging} = props
 
 	let [position, setPosition] = useState(pos)
 
@@ -19,7 +25,7 @@ const Node = props => {
 					cx = {r}
 					cy = {r}
 					r={r}
-					fill={type==='e' ? 'red' : 'black'}
+					fill={view.color}
 					style={{cursor: 'pointer'}}
 				/>
 		</Draggable>

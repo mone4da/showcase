@@ -38,6 +38,7 @@ const Network = props => {
 					id={item.id}
 					label={item.name}
 					type={item.type}
+					view={item.view}
 					pos={item.pos}
 					r = {20}
 					onDragging = {handleDragging}

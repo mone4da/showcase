@@ -3,7 +3,7 @@ const data = require('./data/network.js')
 
 class Network extends require('./network'){
 	constructor(){
-		super(config.network, data)
+		super(config.network, data.service())
 	}
 }
 
@@ -19,7 +19,7 @@ class App extends require('./desk'){
 	}
 
 	data(res){
-		res.json(data)
+		res.json(data.client(config.network.type))
 	}
 
 }
