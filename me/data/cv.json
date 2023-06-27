@@ -1,0 +1,293 @@
+{
+"title" : "Resume 2024",
+"personal_information" : {
+	"name" : "Samuel Ferrer Colás",
+	"born" : "Havana, Cuba, Nov 1964",
+	"current residence": "Sweden",
+ 	"family" : "wife and two small kids",
+	"contacts" : {
+ 		"email" : "ferraxi@gmail.com",
+		"phone": "+46703829369",
+		"social_media": {
+			"linkedin" : "https://www.linkedin.com/in/samuelferrer/",
+			"wordpress" : "https://riemaxi.wordpress.com/",
+			"github" : "https://github.com/mone4da/showcase"
+		}
+	}
+ },
+
+ "summary" : "Hardworking software engineer offering wide-ranging expertise and more than 28 years of software industry experience. Background in testing, evaluating, designing and implementing solutions. Specializing in programming languages such as Python, C, C++, Java, Kotlin and JavaScript. Meticulous Software Engineer . In-depth understanding of web technologies with focus on delivering innovative business solutions. Proactive, creative, positive and a team player who never gives up on the toughest situations.",
+
+  "skills" : [
+    	"Scrum", 
+	"Agile", 
+	"Test Driven Development", 
+	"Machine Learning", 
+	"Cloud Computing (AWS)",
+	"Blockchain and Crypto currency",
+	".NET", 
+	"Java", 
+	"Mobile Applications (Android with Kotlin)", 
+	"Node JS",
+	"LAMP",
+	"Java", 
+	"Kotlin", 
+	"Python",
+	"C",
+	"C++", 
+	"PHP",  
+	"Delphi", 
+	"C#", 
+	"Assembler", 
+	"Visual Basic", 
+	"Pascal",   "Fortran", "Lua", "VHDL", "Matlab", "Javascript", "Java Swing", "Microsoft Presentation Foundation", "Android", "Enterprise Java Beans",
+	"MySQL", "MS SQL Server", "Sybase", "DB2", "Progress", "Vertica",
+	"Multilayer architecture","Microservices","Highly distributed and decentralized architectures", "Grid computing based systems",
+"Pharmaceutics bioinformatics",
+"Drug screening",
+"Genomic algorithms and applications", "React", 
+"Docker",
+"Kubernetes",
+"Terraform",
+"Business Intelligence Visualization",
+"Git", "ABB Advant Controllers", "Edge computing", "AI", "ML"
+
+  ],
+  "personal_projects" : [
+    	{
+		"name": "Collatz Conjecture",
+		"description": "Analytical Proof of the Collatz Conjecture",
+		"host": "academia.com"
+	},
+	{
+		"name": "ORCA Operaring System",
+		"description": "Distributed Operating system using own routing protocol",
+		"host" : "academia.com"
+	},
+    {
+      "name" : "Evolutionary ML",
+      "description": "Machine Learning techniques using evolutionary principles",
+      "host": "academia.com"
+    },
+    {
+      "name" : "P vs NP",
+      "description" : "Modern approach to computational complexity",
+      "host" : "academia.com"
+    }
+
+  ],
+
+   "preferences" : ["Work from home","Hybrid", "more than 4500 euros a month", "AI related projects"],
+
+  "education" : [
+	{
+	"subject": "Artificial Inteligence and Agent Engineering",
+	"period" : "Sep 1998 - Dec 1999",
+	"location": "Stockholm University, DSV, Kista, Sweden"
+	},
+	{
+	"subject": "Bioinformatics",
+	"period": "Sep 2015 - May 2019",
+	"location": "Uppsala University, Sweden"
+	},
+	{
+	"subject": "Computer Science",
+	"period": "Sep 1986 - Jun 1992",
+	"location": "Havana University, Cuba"
+	},
+	{
+	"subject": "Mechanical Engineering",
+	"period": "Sep 1982 - Winter 1985",
+	"location" : "CUJAE,  Havana, Cuba"
+	}
+ ],
+
+  "work_experience" : [
+    	{
+		"roles" : ["Full Stack Developer"],
+		"period": "September 2022 - Mars 2023",
+		"location": "Swedish Tax Office, Sweden",
+		"description" : "Recovered and modernized  a Performance testing reporting system at the Performance Testing department. I went from specification to implementation, all the way from frontend to backend",
+        "technologies": ["Java Spring Boot, ", "NodeJS","Axios", "Worker threads", "Server Send Events (SEE)"]
+	},
+    {
+      		"roles": ["Full Stack Developer"],
+          	"period": "Jan 2022 - August 2022",
+            "location": "Remote, Businesscity110011.1 LLC, USA, Florida",
+            "description": "Architecture, design and development of Telecom platform (Blackflower) integrated with banking and crypto (Silqoin). Documentation and white paper writing.",
+      "technologies" : ["Oracle Cloud", "MySql", "Nodejs", "Python", "Crypto", "Kotlin", "Javascript", "NodeJS", "Dart"]
+    },
+
+    {
+      		"roles": ["Full Stack Developer"],
+		"period": "Sep, 2021 - Jan, 2022",
+		"location": "Norway",
+		"description": "Full Stack developer consultant at TCS. Maintenance of NETS payment system. Development of tool in order to manage security certifications. Client: NETS",
+"technologies": ["Java", "Spring Boot", "NodeJS", "Service Now", "Scrum"]
+    },
+    {
+   		"roles": ["Developer Consultant"],
+		"period": "Jun 2021",
+		"location": "Norway",
+        "description" : "Designed and implemented Lamda-Pipe pattern design, an own pipeline oriented pattern that facilitates the processes of verification and validation. Functioned as advisor and guider about competitive technologies. Contributed to the award winner application, IKEA Finance Services (https://cardandpaymentsawards.com/live/en/page/2022-shortlist). Client: HERNAT CONSULTING LIMITED",
+        "technologies": ["AWS", "AWS Lambda", "AWS Comprehend",  "NodeJS", "Terraform"]
+    },
+    {
+    	"roles": ["Lead Software Engineer"],
+		"period": "Feb 2020 - May 2021",
+		"location": "Remote, Secintech AB, Sweden",
+        "description": "Designed mobile applications for Android platform. Analyzed solutions and coding fixes for software problems. Worked closely with development team members to identify and remove software bugs. Installed, configured and executed server software. Advised customers and users on required maintenance practices for diverse software systems to support OEM warranty requirements and industry best practices. Optimized system performance by making proactive adjustments and resolving bugs. Directed all software design, architecture and programming. Implemented and tested enhancement feature requests to improve product functionality and extend performance. Conducted full life-cycle software development in multiple software environments. Refactored legacy code to drive system architecture improvement. Developed production, test and beta websites using various software programs.",
+      "technologies": ["Linux", "AWS", "Android", "Kotlin", "NodeJS", "Android CameraX", "barcode scanning", "HTML5", "Java"]
+
+    },
+    {
+      		"roles": ["Senior Software Engineer"],
+		"period": "Mar 2019 - Jan 2020",
+		"location": "Hybrid, Senecta Innovation AB, Sweden",
+        "description": "Created proof-of-concept prototype applications for demonstration and evaluation purposes. Developed product and technology roadmap and strategy from concept to launch. Coordinated system installations, testing and code corrections. Modified existing software systems to enhance performance and add new features. Communicated with and gathered feedback from customers about progress updates and worked to resolve specific concerns. Participated in team meetings and provided input on deadlines, designs and enhancements. Designed user-friendly software interfaces to simplify overall management. Identified issues in software processes and implemented optimization techniques resulting in 90% productivity increase. Designed mobile applications for Android platforms.",
+    "technologies" : ["Android", "Kotlin", "Python", "Javascript", "Motion detection", "Java"]
+    },
+
+    {
+      		"roles": ["Research Engineer"],
+		"period": "Nov 2018 - Dec 2018",
+		"location": "Swedish Veterinary Institute, Sweden",
+		"description": "Designed and executed experiments, analyzed and interpreted primary data and formed logical conclusions. It resulted in a novel DNA alignment algorithm based on data reduction strategies.",
+
+  "technologies": ["Python", "SQLite", "BLAST"]
+
+    },
+    {
+     "roles": ["Research Engineer"],
+	"period": "Jul 2017 - Aug 2017",
+	"location": "Department of Cell and Molecular Biology, Computational Biology and Bioinformatics, Sweden",
+		"description": "Directed complex engineering experiments to test, prove or modify theoretical propositions. Used advanced modeling capabilities to further product development processes. Designed and executed experiments, analyzed and interpreted primary data and formed logical conclusions. My work resulted in a highly automated pipeline with the purpose of screening toxicity",
+"technologies": ["Python", "Anaconda", "Autodock Vina"]
+    },
+    {
+   		"roles": ["Freelance"],
+		"period": "Jan 2013 - Dec 2017",
+		"location": "Sweden",
+		"description": "Designed mobile applications for Apple and Android platforms",
+        "technologies": ["Phonegap", "HTML5", "QR code libraries"]
+      },
+      {
+       		"roles": ["Consultant"],
+		"period": "Nov 2011 - Nov 2012",
+		"location": "Sweden",
+        "description" : "initiatives to align development timelines, plan testing and work with client representatives. Performed researched analysis to ascertain detailed client needs. Oversaw project schedules and evaluate progress toward important milestones at every phase of the project. Updated all stakeholders on key project milestones on a monthly basis. Collaborated with product and engineering team members to define and develop new product concepts. Companies: Swedish Church,  Swedish Social Insurance Agency (FSK)",
+        "technologies": ["Java", "WebLogic", "HTML", "Javascript", "Visual Studio NET", "SQL", "XML", "Windows PowerShell", "NUnit","UML Rational Rose", "XML", "XSD", "DOJO", "JSON", "WSDL", "ANT", "Eclipse", "SCRUM", "JMS", "Spring Security", "DB2", "ClearCase", "Python", "Junit"]
+
+      },
+    {
+      		"roles": ["R&D Consultant"],
+		"period": "March 2010 - Jun 2010",
+		"location": "GenX Handelsbolag, Sweden",
+		"description": "Developed a navigation tool for the Ericcsson’s base stations’ networks. Documented and showcased different key scenarios such as excel export/import and very large datasets",
+      "technologies" : ["Java", "Java Swing", "Eclipse"]
+    },
+    {
+      		"roles": ["Software Developer Consultant"],
+		"period": "Vilken Fibernet, Oslo, Norway",
+		"location": "Nov 2008 - Feb 2009",
+		"description": "Worked on a more modern version of the client’s CRM system. Used unit testing in order to propose new functionality. Performed testing, bug reporting and bug fixing",
+      "technologies" : ["Visual Studio NET 2008", "Team Foundation Server", "Silverlight", "C#", "Linq", "XAML","Expression Blend 2", "NUnit"]
+    },
+    {
+      	"roles": ["Softwer Developer Consultant"],
+		"period": "Dec 2006 - May 2008",
+		"location": "Panopticon Software AB, Stockholm Sweden",
+		"description": "Converted from C# to Java (Windows Forms to Java Swing) the client’s Business Intelligence Visualization SDK. Further improved and added new functionalities to the converted SDK. Early experimented on Vertica Database as AWS EC2. Performed research and planning activities as part of an agile team.",
+    "technologies" : ["Scrum", "Vertica Database", ".NET(C#)", "Windows Forms", "Java Swing", "Amazon Web Services"]
+    },
+    {
+      		"roles": ["Developer and Architect Consultant"],
+		"period": "Jun 2006 - Nov 2006",
+		"location": "Casa Martinez AB, Stockholm, Sweden",
+        		"description": "Developed new functionality for the client’s tableau system. Searched and fixed bugs. Periodically reported progress to the client. Client: Sveriges Radio AB.",
+      "technologies" : ["Visual Basic 6", "Visual Studio NET", "ASP NET", "Progress", "PL/SQL", "VB Script", "Java script", "Web Services", "XML", "HTML"]
+    },
+    {
+      		"roles": ["Software Developer Consultant"],
+		"period": "Jan 2005 - Jan 2006",
+		"location": "Free Star technologies, Stockholm, Sweden",
+      "description": "Worked on payment solution for online poker game. Worked on fraud detection due to stolen credit cards. Daily reported directly to the directive about progress. Client: Rahaxi Processing Oy, Finland",
+      "technologies": ["Visual Studio NET", "ASP NET", "MS SQL", "MySQL", "Netgiro API", "TCP IP"]
+    },
+    {
+      		"roles" : ["Software Developer Consultant"],
+		"location": "Interaktiv 3D Visualisering",
+		"period": "Nov 2004 - Jan 2005",
+		"description" : "Worked on the architecture, design and development of a tool to Stockholm’s Moderna Museet 3D experience. Developed website dedicated to CRM operations",
+      "technologies": ["Lua", "Quest3D", "MySql", "PHP"]
+    },
+    {
+      		"roles" : ["Software Developer Consultant"],
+		"period": "May 2003 - Jul 2004",
+		"location": "Americas Software Corporation, Miami, USA",
+		"description" : "Developed web services for fraud detection in banking systems. Supervised junior developers. Developed installation and configuration systems",
+      "technologies": ["Visual Studio NET", "C#", "Delphi", "XML", "Web services", "Sharepoint web parts", "Installshield api"]
+
+    },
+    {
+      		"roles" : ["Software Developer Consultant"],
+		"period": "Dec 2000 - March 2003",
+		"location": "Modul1 Data AB, Stockholm, Sweden",
+"description" : "Worked as full stack developer on SAS Resource Enterprise Planning System. Supervised junior developers. Client: Scandinavian Airline Systems (SAS)",
+      "technologies": ["UML", "WebSphere Application Server (WAS)", "J2EE", "Java SWING", "C#"]
+    },
+    {
+      		"roles" : ["Software Developer Consultant"],
+		"period": "Jan 1999 - Jan 2000",
+		"location": "Flowinteractive AB, Stockholm Sweden",
+		"description" : "Worked on development of online casino. Worked as architect and developer of business  website (YesItWorks). Supervised junior developers",
+      "technologies": ["Java", "C", "POSIX", "TCP/IP sockets", "J2EE", "Leadership"]
+    },
+    {
+      		"roles" : ["System Developer"],
+		"period" : "Dec 1998 - Dec 1999",
+		"location": "ABB Automation Product (Development Department, Division Control Center), Västerås, Sweden",
+		"description" : "Developed logical and visual components for object directory service of ABB’s Advant family products",
+      "technologies":  ["Visual Studio 6.0", "C++", "VB", "COM/DCOM", "ATL", "XML", "Advant Controllers", "Windows NT"]
+  
+    },
+    {
+      		"roles" : ["Software developer and tester"],
+		"period": "Nov 1997 - March 1998",
+		"location": "Commentor AB, Stockholm Sweden",
+    "description" : "Worked on development and improvement of the company’s flagship product: TimeKey. Worked on requirement compliance and implementation",
+      "technologies": ["Borland C++", "Sybase", "Windows", "Unix (HP)"]
+    },
+    {
+      		"roles" : ["Entrepeneur"],
+		"period": "Oct 1994 - Aug 1997",
+		"location": "Own company (Ferrer Soft Productions)",
+		"description" : "Developed computer game for kids. Developed personal testing and profiling system for recruitment company",
+"technologies": ["Borland Delphi", "SQL"]
+    },
+    {
+      		"roles" : ["Research Engineer"],
+		"period": "Dec 1992 -  Dec 1993",
+		"location": "IPK, Cuba",
+		"description" : "Research and Development  in the subject of DNA analysis and epidemiology",
+      "technologies": ["Visual Basic"]
+    }
+  ],
+
+  "languages" : [
+	{
+		"name": "Spanish",
+		"proficiency": {"writing": "mother tongue", "reading": "mother tongue", "speaking": "mother tongue"}
+	},
+	{
+		"name": "Swedish",
+		"proficiency": {"writing": "fluent", "reading": "fluent", "speaking": "fluent"}
+	},
+	{
+		"name": "English",
+		"proficiency": {"writing": "fluent", "reading": "fluent", "speaking": "fluent"}
+	}
+	]
+
+}
+
