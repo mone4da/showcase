@@ -36,12 +36,25 @@ let projects = (data, template) => {
 				.replaceAll('__HOST__', p.host)).join('')
 }
 
+let education = (data, template) => {
+	return data.map(item => 
+			template
+				.replace('__LEVEL__', item.level)
+				.replace('__SUBJECT__',item.subject)
+				.replace('__PERIOD__', item.period)
+				.replace('__LOCATION__', item.location)
+			).join('')
+}
+
 
 let data = JSON.parse(fs.readFileSync(config.source, 'utf8'))
 let template = fs.readFileSync(config.template.document, 'utf8')
 let workTemplate = fs.readFileSync(config.template.workexperience, 'utf8')
 let skillTemplate = fs.readFileSync(config.template.skill, 'utf8')
 let projectTemplate = fs.readFileSync(config.template.project, 'utf8')
+let educationTemplate = fs.readFileSync(config.template.education, 'utf8')
+
+template = template.replace('__DATASET__', data.dataset)
 
 template = template.replace('__TITLE__', data.title)
 
@@ -53,6 +66,10 @@ template = template.replace('__SKILLS__', skills(data.skills, skillTemplate))
 
 template = template.replace('__PROJECTS__', projects(data.personal_projects, projectTemplate))
 
+template = template.replace('__EDUCATION__', education(data.education, educationTemplate))
+
 template = template.replace('__WORK_EXPERIENCE__', workExperience(data.work_experience, workTemplate) )
+
+template = template.replace('__PREFERENCES__', data.preferences.join(', '))
 
 console.log( template )

@@ -1,4 +1,5 @@
 {
+"dataset" : "https://github.com/mone4da/showcase",
 "title" : "Resume 2024",
 "personal_information" : {
 	"name" : "Samuel Ferrer Colás",
@@ -81,21 +82,25 @@
 
   "education" : [
 	{
+ 	"level": "PhD studies",
 	"subject": "Artificial Inteligence and Agent Engineering",
 	"period" : "Sep 1998 - Dec 1999",
 	"location": "Stockholm University, DSV, Kista, Sweden"
 	},
 	{
+	"level" : "Master",
 	"subject": "Bioinformatics",
 	"period": "Sep 2015 - May 2019",
 	"location": "Uppsala University, Sweden"
 	},
 	{
+	"level": "Magister",
 	"subject": "Computer Science",
 	"period": "Sep 1986 - Jun 1992",
 	"location": "Havana University, Cuba"
 	},
 	{
+	"level": "Magister studies",
 	"subject": "Mechanical Engineering",
 	"period": "Sep 1982 - Winter 1985",
 	"location" : "CUJAE,  Havana, Cuba"

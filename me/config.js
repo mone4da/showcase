@@ -5,6 +5,7 @@ module.exports = {
 		document: './template/cv.html',
 		workexperience: './template/work_experience.html',
 		skill: './template/skill.html',
-		project: './template/project.html'
+		project: './template/project.html',
+		education: './template/education.html'
 	}
 }
