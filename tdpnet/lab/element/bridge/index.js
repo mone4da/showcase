@@ -1,16 +1,13 @@
 const {workerData, parentPort} = require('node:worker_threads')
+const Lane = require('./lane')
 
-let {id, neightboors} = workerData
-
-let transform = msg => {
-	switch(msg.data){
-		default: return msg
-	}
+let lanes = {
+	left: new Lane(workerData.lanes.left),
+	right: new Lane(workerData.lanes.right)
 }
 
-let send = data => {
-	let msg = transform(data)
-	msg && parentPort.postMessage( {...msg, neightboors})
+let send = msg => {
+	msg && parentPort.postMessage( msg )
 }
 
 let dropped = msg => {
@@ -28,12 +25,12 @@ let dropped = msg => {
 }
 
 let processMessage = msg => {
-	if (dropped(msg))
+	let relayMessage = lanes[msg.lane].process(msg)
+	send(relayMessage)
+	/*if (dropped(msg))
 		return
 
-	send(msg)
+	send(msg)*/
 }
-
-console.log('node', id, 'alive')
 
 parentPort.on('message', msg => processMessage(msg))
