@@ -5,24 +5,28 @@ module.exports = {
 	network: {
 		type: {
 			e: {
-				model: './edge.js',
+				model: './element/edge/index.js',
 				view: { color: 'red'}
 			},
 			b: {
-				model: './node.js',
-				view: { color: 'black'}
+				model: './element/bridge/index.js',
+				view: { color: '#0E2954'}
 			},
 			g: {
-				model: './gateway.js',
+				model: './element/gateway/index.js',
 				view: {color: 'green'}
 			},
 			r: {
-				model: './region.js',
+				model: './element/region/index.js',
 				view: { color: 'blue'}
 			},
 			ux: {
-				model: './ux.js',
+				model: './element/ux/index.js',
 				view: { color: '#CCCCCC'}
+			},
+			sp : {
+				model: './element/sp/index.js',
+				view: { color: '#CE29AA' }
 			}
 		}
 	}
