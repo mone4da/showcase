@@ -58,6 +58,10 @@ let Maze = props => {
 		onMove && onMove(pos)
 	}
 
+	let handleSeek = data => {
+		console.log('seek', data)
+	}
+
 	useKeyboard({
 		onKeydown : code => handleKeydown(code)
 	})
@@ -74,7 +78,7 @@ let Maze = props => {
 
 				<Player position={position} material={player.material} />
 
-				<Chickens list={chickens} players={[position]} rate={firerate} onFire={handleFire} />
+				<Chickens list={chickens} players={[position]} rate={firerate} onFire={handleFire} onSeek={handleSeek} />
 
 				<Impact data={fire} scale={scale} player={position} onHit={handleHit} />
 			</g>
