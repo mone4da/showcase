@@ -1,18 +1,5 @@
 import {useState} from 'react'
 
-let distance = (a,b) => {
-	let dx = a.x - b.x
-	let dz = a.z - b.z
-	return Math.sqrt(dx * dx + dz * dz)
-}
-
-let center = positions => {
-	let c = positions.reduce((a,p) => ({x: a.x + p.x, z: a.z + p.z}), {x:0, z:0})
-	return {x: c.x/positions.length, z: c.z/positions.length}
-}
-
-let rotation =  (a,b) => {
-}
 
 const Head = props => {
 	let {color} = props
@@ -103,13 +90,9 @@ let fire = (position, orientation, rate, bullets, players, onFire) => {
 		}
 }
 
-let scan = (position, target, max, onSeek) => {
-	let d = distance(position, target)
-	(0 < d && d < max) && onSeek({x: (target.x - position.x)/10, z: (target.z - position.z)/10}, rotation(position, target))
-}
 
 const Chicken = props => {
-	let {setting, players, size, onFire, onSeek} = props
+	let {setting, players, size, onFire} = props
 
 	let [position, setPosition] = useState(setting.position)
 	let [orientation, setOrientation] = useState(setting.orientation)
@@ -120,17 +103,6 @@ const Chicken = props => {
 	let handleFire = data => {
 		onFire && onFire(data)
 	}
-
-	let handleSeek = (delta, cita) => {
-		let no = orientation + cita
-		let np = {x: position.x + delta.x, z: position.z + delta.z}
-
-		setOrientation(no)
-		setPosition(np)
-		onSeek && onSeek({position: np, orientation: no})
-	}
-
-	scan(position, center(players), handleSeek)
 
 	fire(position, orientation, setting.rate, bullets, players, handleFire)
 

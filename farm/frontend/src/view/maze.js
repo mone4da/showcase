@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import {Chickens} from './chicken'
 import {Fire, Impact} from './effect'
 import {Player, newPosition} from './rule'
+import {tactic} from './swat'
 import useKeyboard from './useKeyboard'
 
 const Wall = props => {
@@ -29,6 +30,7 @@ let Maze = props => {
 
 	let [position, setPosition] = useState(player.position)
 	let [fire, setFire] = useState({position: null, orientation: null})
+	let [chickenDeployment, setChickenDeployment] = useState(chickens)
 
 	let width = data[0].length
 	let height = data.length
@@ -55,11 +57,10 @@ let Maze = props => {
 		}
 
 		setPosition(position => pos)
-		onMove && onMove(pos)
-	}
 
-	let handleSeek = data => {
-		console.log('seek', data)
+		//setChickenDeployment(deployment => tactic(deployment, pos))
+
+		onMove && onMove(pos)
 	}
 
 	useKeyboard({
@@ -78,7 +79,7 @@ let Maze = props => {
 
 				<Player position={position} material={player.material} />
 
-				<Chickens list={chickens} players={[position]} rate={firerate} onFire={handleFire} onSeek={handleSeek} />
+				<Chickens list={chickenDeployment} players={[position]} rate={firerate} onFire={handleFire} />
 
 				<Impact data={fire} scale={scale} player={position} onHit={handleHit} />
 			</g>

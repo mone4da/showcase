@@ -1,4 +1,6 @@
-import React from 'react'
+import {useState} from 'react'
+
+import {tactic} from './swat'
 import Maze from './maze'
 import ControlPanel from './controlpanel'
 
@@ -7,7 +9,12 @@ import style from './style'
 let View = props => {
 	let {state, event, onUpdate} = props
 
+	let [chickens, setChickens] = useState(state.system.chickens)
+
 	let handleMaze = (pos,id) => {
+		if (id === 'maze')
+			setChickens(deployment => tactic(deployment, pos))
+
 		onUpdate && onUpdate(pos, id)
 	}
 
@@ -20,7 +27,7 @@ let View = props => {
 				style={style.scene}
 				data={state.system.maze}
 				gate={state.system.exit}
-				chickens={state.system.chickens}
+				chickens={chickens}
 				impacts = {state.system.impacts}
 				targets = {state.user.targets}
 				player = {state.user.player}
